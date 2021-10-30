@@ -16,7 +16,7 @@ using System.Collections.ObjectModel;
 
 namespace CookieCosmosWatcher
 {
-    public partial class Form1 : Form
+    public partial class CookieCosmos : Form
     {
         private int counter = 0;
         private int counter_max = 3600;
@@ -28,6 +28,8 @@ namespace CookieCosmosWatcher
         private DateTime last_check;
         private bool need_to_populate_servers = true;
         private string current_server;
+        private DateTime current_server_daily;
+        private bool daily_check = false;
         DataGridViewCellStyle style;
 
         private Color good_colour = Color.FromArgb(128, 255, 128);
@@ -46,7 +48,7 @@ namespace CookieCosmosWatcher
 
         Dictionary<string, Cookie_Controls> cookie_controls;
 
-        public Form1()
+        public CookieCosmos()
         {
             InitializeComponent();
         }
@@ -106,10 +108,17 @@ namespace CookieCosmosWatcher
             style.SelectionForeColor = Color.Yellow;
             dataItems.DefaultCellStyle = style;
 
+            dataItems.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(51,51,51);
+            dataItems.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dataItems.EnableHeadersVisualStyles = false;
+
+            cmbxPolling.SelectedIndex = 4;
+            cmbxPrioritize.SelectedIndex = 0;
+
             LoadInfo();
             FormCheck();
 
-            if (tbxApi.Text != "")
+            if (tbxApiKey.Text != "")
                 LoadData();
 
             api_key_changed = false;
@@ -118,24 +127,23 @@ namespace CookieCosmosWatcher
         private void LoadInfo()
         {
             // load in local settings
-            tbxApi.Text = Properties.Settings.Default.key;
+            tbxApiKey.Text = Properties.Settings.Default.key;
             current_server = Properties.Settings.Default.current_server;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.key = tbxApi.Text;
+            Properties.Settings.Default.key = tbxApiKey.Text;
             Properties.Settings.Default.Save();
         }
 
         private void FormCheck()
         {
-            if (tbxApi.Text != "")
+            if (tbxApiKey.Text != "")
             {
-                // do all the things
                 lblHelp.Visible = false;
+                panelMain.Visible = true;
                 timer.Start();
-                counter = 0;
             }
             else
             {
@@ -147,6 +155,29 @@ namespace CookieCosmosWatcher
         {
             counter++;
             lblServerTimeValue.Text = TimeZoneInfo.ConvertTime(DateTime.Now, TimeZoneInfo.FindSystemTimeZoneById("New Zealand Standard Time")).ToString();
+
+            // checks daily
+            if (daily_check)
+            {
+                if (current_server_daily != null)
+                {
+                    if (current_server_daily < DateTime.Now)
+                    {
+                        lblDailyReadyValue.Text = "Ready";
+                        lblDailyReadyValue.ForeColor = good_colour;
+                        lbxRecommendations.Items.Add("+daily");
+                        daily_check = false;
+                    }
+                }
+            }
+
+            if (current_player != null)
+            {
+                TimeSpan ts = new TimeSpan(0, 0, 0, counter_max - counter);
+                toolTip.SetToolTip(pbxRefresh, $"Usage: {current_player.usage}\nLast Called: {current_player.called}\nNext Update: {ts.Hours}h {ts.Minutes}m {ts.Seconds}s");
+            }
+
+            // checks if a refresh is needed
             if (counter >= counter_max)
             {
                 counter = 0;
@@ -156,8 +187,8 @@ namespace CookieCosmosWatcher
 
         private void LoadData()
         {
-            string url_player = $"https://api.cookiecosmosbot.com/v1.1/player/?t={tbxApi.Text}";
-            string url_cookie = $"https://api.cookiecosmosbot.com/v1.1/cookie/?t={tbxApi.Text}";
+            string url_player = $"https://api.cookiecosmosbot.com/v1.1/player/?t={tbxApiKey.Text}";
+            string url_cookie = $"https://api.cookiecosmosbot.com/v1.1/cookie/?t={tbxApiKey.Text}";
 
             var data_player = "";
             var data_cookie = "";
@@ -190,22 +221,22 @@ namespace CookieCosmosWatcher
                 // server list
                 if (need_to_populate_servers)
                 {
-                    cmbxServerSeleect.Items.Clear();
+                    cmbxServerSelect.Items.Clear();
 
                     foreach (Server s in current_player.servers)
                     {
-                        cmbxServerSeleect.Items.Add(s.guild_name);
+                        cmbxServerSelect.Items.Add(s.guild_name);
                         if (current_server != "")
                         {
                             if (current_server == s.guild_name)
-                                cmbxServerSeleect.SelectedItem = current_server;
+                                cmbxServerSelect.SelectedItem = current_server;
                         }
                     }
 
-                    if (cmbxServerSeleect.SelectedIndex == -1)
+                    if (cmbxServerSelect.SelectedIndex == -1)
                     {
-                        cmbxServerSeleect.SelectedIndex = 0;
-                        current_server = cmbxServerSeleect.SelectedItem.ToString();
+                        cmbxServerSelect.SelectedIndex = 0;
+                        current_server = cmbxServerSelect.SelectedItem.ToString();
                         Properties.Settings.Default.current_server = current_server;
                         Properties.Settings.Default.Save();
                     }
@@ -213,7 +244,6 @@ namespace CookieCosmosWatcher
                     need_to_populate_servers = false;
                 }
 
-                // 
                 RefreshData();
             }
             else
@@ -225,7 +255,7 @@ namespace CookieCosmosWatcher
 
         private void cmbxServerSeleect_SelectedIndexChanged(object sender, EventArgs e)
         {
-            current_server = cmbxServerSeleect.SelectedItem.ToString();
+            current_server = cmbxServerSelect.SelectedItem.ToString();
 
             if (current_server != "")
             {
@@ -270,21 +300,25 @@ namespace CookieCosmosWatcher
                 lblCookieJarValue.ForeColor = cj ? good_colour : bad_colour;
 
                 lblDailyStreakValue.Text = server_stuff.daily_streak.ToString();
+                server_stuff.daily_time = server_stuff.daily_time.AddDays(1);
                 lblDailyTimeValue.Text = server_stuff.daily_time.ToString();
+                current_server_daily = server_stuff.daily_time;
                 lblPrestigeValue.Text = server_stuff.prestige.ToString();
                 toolTip.SetToolTip(lblPrestigeValue, $"Prestige Rank 3\n- Daily Gain: {Math.Round(server_stuff.prestige * 0.15,2) * 100}%\n- Sale Fee Reduction: {Math.Round(server_stuff.prestige * 0.05, 2) * 100}%");
 
                 current_cookie_value = server_stuff.cookies.Find(x => x.name == "Cookie").amount;
 
-                if (server_stuff.daily_time < DateTime.Now)
+                if (server_stuff.daily_time > DateTime.Now)
                 {
                     lblDailyReadyValue.Text = "Not Ready";
                     lblDailyReadyValue.ForeColor = bad_colour;
+                    daily_check = true;
                 }
                 else
                 {
                     lblDailyReadyValue.Text = "Ready";
                     lblDailyReadyValue.ForeColor = good_colour;
+                    daily_check = false;
                 }
 
                 foreach (PlayerCookie pc in server_stuff.cookies)
@@ -318,6 +352,19 @@ namespace CookieCosmosWatcher
                             ccpc.inflator.Text = inflate;
                             ccpc.inflator.ForeColor = (from.ToString().Contains("-") || to.ToString().Contains("-")) ? bad_colour : good_colour;
                         }
+
+                        // recommendations
+                        double rate_base = (sell_for_sale_fee / bought_for);
+                        double rate_inflate = ((sell_for_sale_fee * 1.35) / bought_for);
+                        if (rate_inflate > 2)
+                        {
+                            lbxRecommendations.Items.Add("+items use inflator");
+                            lbxRecommendations.Items.Add("+cookie sell max " + pc.name);
+                        }
+                        else if (rate_base > 1.5)
+                        {
+                            lbxRecommendations.Items.Add("+cookie sell max " + pc.name);
+                        }
                     }
                 }
 
@@ -346,7 +393,7 @@ namespace CookieCosmosWatcher
                 dataItems.Rows.Clear();
                 foreach (PlayerItem pi in server_stuff.items)
                 {
-                    dataItems.Rows.Add(pi.item_type, pi.name, pi.amount);
+                    dataItems.Rows.Add(pi.item_type, (pi.item_type == "Consumable" ? pi.name : pi.name + $" ({pi.description})"), pi.amount);
                 }
 
                 dataItems.ClearSelection();
@@ -363,6 +410,40 @@ namespace CookieCosmosWatcher
             e.DrawBackground();
             e.DrawBorder();
             e.DrawText(sf);
+        }
+
+        private void pbxRefresh_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void cbxKeepTop_CheckedChanged(object sender, EventArgs e)
+        {
+            TopMost = !TopMost;
+        }
+
+        private void cbxShowRecommendations_CheckedChanged(object sender, EventArgs e)
+        {
+            lblProfitThreshold.Enabled = !lblProfitThreshold.Visible;
+            lblInflatorThreshold.Enabled = !lblInflatorThreshold.Enabled;
+            lblPrioritize.Enabled = !lblPrioritize.Enabled;
+            numProfitThreshold.Enabled = !numProfitThreshold.Enabled;
+            numInflatorThreshold.Enabled = !numInflatorThreshold.Enabled;
+            cmbxPrioritize.Enabled = !cmbxPrioritize.Enabled;
+        }
+
+        private void cbxDisplayItems_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxDisplayItems.Checked)
+            {
+                panelItems.Visible = true;
+
+            }
+            else
+            {
+                panelItems.Visible = false;
+                Size = MinimumSize;
+            }
         }
     }
 }

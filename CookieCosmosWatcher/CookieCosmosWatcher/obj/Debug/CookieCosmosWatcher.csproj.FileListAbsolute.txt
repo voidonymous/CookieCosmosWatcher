@@ -4,7 +4,6 @@ C:\Users\corru\Documents\GitHub\CookieCosmosWatcher\CookieCosmosWatcher\CookieCo
 C:\Users\corru\Documents\GitHub\CookieCosmosWatcher\CookieCosmosWatcher\CookieCosmosWatcher\bin\Debug\Json.Net.dll
 C:\Users\corru\Documents\GitHub\CookieCosmosWatcher\CookieCosmosWatcher\CookieCosmosWatcher\bin\Debug\Newtonsoft.Json.dll
 C:\Users\corru\Documents\GitHub\CookieCosmosWatcher\CookieCosmosWatcher\CookieCosmosWatcher\bin\Debug\Newtonsoft.Json.xml
-C:\Users\corru\Documents\GitHub\CookieCosmosWatcher\CookieCosmosWatcher\CookieCosmosWatcher\obj\Debug\CookieCosmosWatcher.Form1.resources
 C:\Users\corru\Documents\GitHub\CookieCosmosWatcher\CookieCosmosWatcher\CookieCosmosWatcher\obj\Debug\CookieCosmosWatcher.Properties.Resources.resources
 C:\Users\corru\Documents\GitHub\CookieCosmosWatcher\CookieCosmosWatcher\CookieCosmosWatcher\obj\Debug\CookieCosmosWatcher.csproj.GenerateResource.cache
 C:\Users\corru\Documents\GitHub\CookieCosmosWatcher\CookieCosmosWatcher\CookieCosmosWatcher\obj\Debug\CookieCosmosWatcher.csproj.CoreCompileInputs.cache
@@ -12,3 +11,4 @@ C:\Users\corru\Documents\GitHub\CookieCosmosWatcher\CookieCosmosWatcher\CookieCo
 C:\Users\corru\Documents\GitHub\CookieCosmosWatcher\CookieCosmosWatcher\CookieCosmosWatcher\obj\Debug\CookieCosmosWatcher.exe
 C:\Users\corru\Documents\GitHub\CookieCosmosWatcher\CookieCosmosWatcher\CookieCosmosWatcher\obj\Debug\CookieCosmosWatcher.pdb
 C:\Users\corru\Documents\GitHub\CookieCosmosWatcher\CookieCosmosWatcher\CookieCosmosWatcher\obj\Debug\CookieCosmosWatcher.csprojAssemblyReference.cache
+C:\Users\corru\Documents\GitHub\CookieCosmosWatcher\CookieCosmosWatcher\CookieCosmosWatcher\obj\Debug\CookieCosmosWatcher.CookieCosmos.resources

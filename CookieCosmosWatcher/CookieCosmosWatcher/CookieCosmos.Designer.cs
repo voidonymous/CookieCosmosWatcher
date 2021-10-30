@@ -1,6 +1,6 @@
 ﻿namespace CookieCosmosWatcher
 {
-    partial class Form1
+    partial class CookieCosmos
     {
         /// <summary>
         /// Required designer variable.
@@ -29,15 +29,43 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CookieCosmos));
             this.panelSettings = new System.Windows.Forms.Panel();
+            this.lblUpdates = new System.Windows.Forms.Label();
+            this.lblSServer = new System.Windows.Forms.Label();
+            this.cmbxServerSelect = new System.Windows.Forms.ComboBox();
+            this.lblSettingsGeneral = new System.Windows.Forms.Label();
+            this.cbxKeepTop = new System.Windows.Forms.CheckBox();
+            this.lblKeepTop = new System.Windows.Forms.Label();
+            this.lblCheckingUpdate = new System.Windows.Forms.Label();
+            this.btnCheckUpdate = new System.Windows.Forms.Button();
+            this.cbxDisplayItems = new System.Windows.Forms.CheckBox();
+            this.lblDisplayItems = new System.Windows.Forms.Label();
+            this.lblSettingsDisplay = new System.Windows.Forms.Label();
+            this.lblKey = new System.Windows.Forms.Label();
+            this.lblPollRate = new System.Windows.Forms.Label();
+            this.lblPrioritize = new System.Windows.Forms.Label();
+            this.cmbxPrioritize = new System.Windows.Forms.ComboBox();
+            this.numInflatorThreshold = new System.Windows.Forms.NumericUpDown();
+            this.lblInflatorThreshold = new System.Windows.Forms.Label();
+            this.numProfitThreshold = new System.Windows.Forms.NumericUpDown();
+            this.lblProfitThreshold = new System.Windows.Forms.Label();
+            this.cbxShowRecommendations = new System.Windows.Forms.CheckBox();
+            this.lblShowRecommendations = new System.Windows.Forms.Label();
+            this.lblSettingsRecommendations = new System.Windows.Forms.Label();
             this.lblPolling = new System.Windows.Forms.Label();
             this.cmbxPolling = new System.Windows.Forms.ComboBox();
-            this.lblPollApi = new System.Windows.Forms.Label();
-            this.lblApiKey = new System.Windows.Forms.Label();
-            this.tbxApi = new System.Windows.Forms.TextBox();
-            this.pbxSettingClose = new System.Windows.Forms.PictureBox();
+            this.lblSettingsAPI = new System.Windows.Forms.Label();
+            this.tbxApiKey = new System.Windows.Forms.TextBox();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.panelItems = new System.Windows.Forms.Panel();
+            this.dataItems = new System.Windows.Forms.DataGridView();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PanelRecommendations = new System.Windows.Forms.Panel();
+            this.lbxRecommendations = new System.Windows.Forms.ListBox();
+            this.lblRecommendations = new System.Windows.Forms.Label();
             this.lblCookieValueValue = new System.Windows.Forms.Label();
             this.lblCookieValue = new System.Windows.Forms.Label();
             this.lblCanPrestigeValue = new System.Windows.Forms.Label();
@@ -66,7 +94,6 @@
             this.lblSlimeNet = new System.Windows.Forms.Label();
             this.lblNet = new System.Windows.Forms.Label();
             this.lblCookieHolding = new System.Windows.Forms.Label();
-            this.pbxCookie = new System.Windows.Forms.PictureBox();
             this.label46 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
@@ -79,8 +106,6 @@
             this.lblMidnightCalcValue = new System.Windows.Forms.Label();
             this.lblServerTimeValue = new System.Windows.Forms.Label();
             this.lblServer = new System.Windows.Forms.Label();
-            this.cmbxServerSeleect = new System.Windows.Forms.ComboBox();
-            this.lblServerSelect = new System.Windows.Forms.Label();
             this.lblGeneral = new System.Windows.Forms.Label();
             this.lblItems = new System.Windows.Forms.Label();
             this.lblCookies = new System.Windows.Forms.Label();
@@ -89,10 +114,6 @@
             this.lblDailyReady = new System.Windows.Forms.Label();
             this.lblServerTime = new System.Windows.Forms.Label();
             this.lblMidnightCalc = new System.Windows.Forms.Label();
-            this.dataItems = new System.Windows.Forms.DataGridView();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
@@ -119,29 +140,37 @@
             this.lblNitroPrice = new System.Windows.Forms.Label();
             this.lblMechaPrice = new System.Windows.Forms.Label();
             this.lblFirePrice = new System.Windows.Forms.Label();
-            this.pbxMillionaire = new System.Windows.Forms.PictureBox();
             this.lblSlimePrice = new System.Windows.Forms.Label();
+            this.lblPaid = new System.Windows.Forms.Label();
+            this.lblHolding = new System.Windows.Forms.Label();
+            this.lblPrice = new System.Windows.Forms.Label();
+            this.lblHelp = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.pbxRefresh = new System.Windows.Forms.PictureBox();
+            this.pbxCookie = new System.Windows.Forms.PictureBox();
+            this.pbxMillionaire = new System.Windows.Forms.PictureBox();
             this.pbxNitro = new System.Windows.Forms.PictureBox();
             this.pbxDragon = new System.Windows.Forms.PictureBox();
             this.pbxMecha = new System.Windows.Forms.PictureBox();
             this.pbxFire = new System.Windows.Forms.PictureBox();
-            this.lblPaid = new System.Windows.Forms.Label();
-            this.lblHolding = new System.Windows.Forms.Label();
-            this.lblPrice = new System.Windows.Forms.Label();
             this.pbxSlime = new System.Windows.Forms.PictureBox();
-            this.lblHelp = new System.Windows.Forms.Label();
             this.pbxSettings = new System.Windows.Forms.PictureBox();
-            this.timer = new System.Windows.Forms.Timer(this.components);
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.pbxSettingClose = new System.Windows.Forms.PictureBox();
+            this.lblVersion = new System.Windows.Forms.Label();
             this.panelSettings.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxSettingClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numInflatorThreshold)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numProfitThreshold)).BeginInit();
             this.panelMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxCookie)).BeginInit();
+            this.panelItems.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataItems)).BeginInit();
+            this.PanelRecommendations.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxRefresh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxCookie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxMillionaire)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxNitro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDragon)).BeginInit();
@@ -149,6 +178,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbxFire)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxSlime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxSettings)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxSettingClose)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSettings
@@ -156,23 +186,327 @@
             this.panelSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelSettings.Controls.Add(this.lblVersion);
+            this.panelSettings.Controls.Add(this.lblUpdates);
+            this.panelSettings.Controls.Add(this.lblSServer);
+            this.panelSettings.Controls.Add(this.cmbxServerSelect);
+            this.panelSettings.Controls.Add(this.lblSettingsGeneral);
+            this.panelSettings.Controls.Add(this.cbxKeepTop);
+            this.panelSettings.Controls.Add(this.lblKeepTop);
+            this.panelSettings.Controls.Add(this.lblCheckingUpdate);
+            this.panelSettings.Controls.Add(this.btnCheckUpdate);
+            this.panelSettings.Controls.Add(this.cbxDisplayItems);
+            this.panelSettings.Controls.Add(this.lblDisplayItems);
+            this.panelSettings.Controls.Add(this.lblSettingsDisplay);
+            this.panelSettings.Controls.Add(this.lblKey);
+            this.panelSettings.Controls.Add(this.lblPollRate);
+            this.panelSettings.Controls.Add(this.lblPrioritize);
+            this.panelSettings.Controls.Add(this.cmbxPrioritize);
+            this.panelSettings.Controls.Add(this.numInflatorThreshold);
+            this.panelSettings.Controls.Add(this.lblInflatorThreshold);
+            this.panelSettings.Controls.Add(this.numProfitThreshold);
+            this.panelSettings.Controls.Add(this.lblProfitThreshold);
+            this.panelSettings.Controls.Add(this.cbxShowRecommendations);
+            this.panelSettings.Controls.Add(this.lblShowRecommendations);
+            this.panelSettings.Controls.Add(this.lblSettingsRecommendations);
             this.panelSettings.Controls.Add(this.lblPolling);
             this.panelSettings.Controls.Add(this.cmbxPolling);
-            this.panelSettings.Controls.Add(this.lblPollApi);
-            this.panelSettings.Controls.Add(this.lblApiKey);
-            this.panelSettings.Controls.Add(this.tbxApi);
+            this.panelSettings.Controls.Add(this.lblSettingsAPI);
+            this.panelSettings.Controls.Add(this.tbxApiKey);
             this.panelSettings.Controls.Add(this.pbxSettingClose);
             this.panelSettings.Location = new System.Drawing.Point(0, 0);
             this.panelSettings.Name = "panelSettings";
-            this.panelSettings.Size = new System.Drawing.Size(526, 919);
+            this.panelSettings.Size = new System.Drawing.Size(526, 787);
             this.panelSettings.TabIndex = 2;
+            // 
+            // lblUpdates
+            // 
+            this.lblUpdates.AutoSize = true;
+            this.lblUpdates.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUpdates.ForeColor = System.Drawing.Color.Silver;
+            this.lblUpdates.Location = new System.Drawing.Point(14, 76);
+            this.lblUpdates.Name = "lblUpdates";
+            this.lblUpdates.Size = new System.Drawing.Size(58, 17);
+            this.lblUpdates.TabIndex = 58;
+            this.lblUpdates.Text = "Updates";
+            // 
+            // lblSServer
+            // 
+            this.lblSServer.AutoSize = true;
+            this.lblSServer.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSServer.ForeColor = System.Drawing.Color.Silver;
+            this.lblSServer.Location = new System.Drawing.Point(14, 51);
+            this.lblSServer.Name = "lblSServer";
+            this.lblSServer.Size = new System.Drawing.Size(47, 17);
+            this.lblSServer.TabIndex = 57;
+            this.lblSServer.Text = "Server";
+            // 
+            // cmbxServerSelect
+            // 
+            this.cmbxServerSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbxServerSelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.cmbxServerSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxServerSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbxServerSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbxServerSelect.ForeColor = System.Drawing.Color.Silver;
+            this.cmbxServerSelect.FormattingEnabled = true;
+            this.cmbxServerSelect.Location = new System.Drawing.Point(196, 49);
+            this.cmbxServerSelect.Name = "cmbxServerSelect";
+            this.cmbxServerSelect.Size = new System.Drawing.Size(125, 21);
+            this.cmbxServerSelect.TabIndex = 56;
+            // 
+            // lblSettingsGeneral
+            // 
+            this.lblSettingsGeneral.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSettingsGeneral.AutoSize = true;
+            this.lblSettingsGeneral.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblSettingsGeneral.Location = new System.Drawing.Point(13, 29);
+            this.lblSettingsGeneral.Name = "lblSettingsGeneral";
+            this.lblSettingsGeneral.Size = new System.Drawing.Size(59, 17);
+            this.lblSettingsGeneral.TabIndex = 55;
+            this.lblSettingsGeneral.Text = "General";
+            // 
+            // cbxKeepTop
+            // 
+            this.cbxKeepTop.AutoSize = true;
+            this.cbxKeepTop.Location = new System.Drawing.Point(197, 426);
+            this.cbxKeepTop.Name = "cbxKeepTop";
+            this.cbxKeepTop.Size = new System.Drawing.Size(15, 14);
+            this.cbxKeepTop.TabIndex = 26;
+            this.cbxKeepTop.UseVisualStyleBackColor = true;
+            this.cbxKeepTop.CheckedChanged += new System.EventHandler(this.cbxKeepTop_CheckedChanged);
+            // 
+            // lblKeepTop
+            // 
+            this.lblKeepTop.AutoSize = true;
+            this.lblKeepTop.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKeepTop.ForeColor = System.Drawing.Color.Silver;
+            this.lblKeepTop.Location = new System.Drawing.Point(14, 424);
+            this.lblKeepTop.Name = "lblKeepTop";
+            this.lblKeepTop.Size = new System.Drawing.Size(83, 17);
+            this.lblKeepTop.TabIndex = 25;
+            this.lblKeepTop.Text = "Keep On Top";
+            // 
+            // lblCheckingUpdate
+            // 
+            this.lblCheckingUpdate.AutoSize = true;
+            this.lblCheckingUpdate.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCheckingUpdate.ForeColor = System.Drawing.Color.Silver;
+            this.lblCheckingUpdate.Location = new System.Drawing.Point(322, 79);
+            this.lblCheckingUpdate.Name = "lblCheckingUpdate";
+            this.lblCheckingUpdate.Size = new System.Drawing.Size(68, 16);
+            this.lblCheckingUpdate.TabIndex = 24;
+            this.lblCheckingUpdate.Text = "Checking...";
+            this.lblCheckingUpdate.Visible = false;
+            // 
+            // btnCheckUpdate
+            // 
+            this.btnCheckUpdate.Enabled = false;
+            this.btnCheckUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckUpdate.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckUpdate.ForeColor = System.Drawing.Color.Silver;
+            this.btnCheckUpdate.Location = new System.Drawing.Point(196, 73);
+            this.btnCheckUpdate.Name = "btnCheckUpdate";
+            this.btnCheckUpdate.Size = new System.Drawing.Size(125, 25);
+            this.btnCheckUpdate.TabIndex = 23;
+            this.btnCheckUpdate.Text = "Check for Updates";
+            this.btnCheckUpdate.UseVisualStyleBackColor = true;
+            // 
+            // cbxDisplayItems
+            // 
+            this.cbxDisplayItems.AutoSize = true;
+            this.cbxDisplayItems.Checked = true;
+            this.cbxDisplayItems.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbxDisplayItems.Location = new System.Drawing.Point(197, 399);
+            this.cbxDisplayItems.Name = "cbxDisplayItems";
+            this.cbxDisplayItems.Size = new System.Drawing.Size(15, 14);
+            this.cbxDisplayItems.TabIndex = 22;
+            this.cbxDisplayItems.UseVisualStyleBackColor = true;
+            this.cbxDisplayItems.CheckedChanged += new System.EventHandler(this.cbxDisplayItems_CheckedChanged);
+            // 
+            // lblDisplayItems
+            // 
+            this.lblDisplayItems.AutoSize = true;
+            this.lblDisplayItems.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDisplayItems.ForeColor = System.Drawing.Color.Silver;
+            this.lblDisplayItems.Location = new System.Drawing.Point(14, 397);
+            this.lblDisplayItems.Name = "lblDisplayItems";
+            this.lblDisplayItems.Size = new System.Drawing.Size(85, 17);
+            this.lblDisplayItems.TabIndex = 21;
+            this.lblDisplayItems.Text = "Display Items";
+            // 
+            // lblSettingsDisplay
+            // 
+            this.lblSettingsDisplay.AutoSize = true;
+            this.lblSettingsDisplay.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblSettingsDisplay.Location = new System.Drawing.Point(14, 372);
+            this.lblSettingsDisplay.Name = "lblSettingsDisplay";
+            this.lblSettingsDisplay.Size = new System.Drawing.Size(53, 17);
+            this.lblSettingsDisplay.TabIndex = 20;
+            this.lblSettingsDisplay.Text = "Display";
+            // 
+            // lblKey
+            // 
+            this.lblKey.AutoSize = true;
+            this.lblKey.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKey.ForeColor = System.Drawing.Color.Silver;
+            this.lblKey.Location = new System.Drawing.Point(14, 140);
+            this.lblKey.Name = "lblKey";
+            this.lblKey.Size = new System.Drawing.Size(29, 17);
+            this.lblKey.TabIndex = 19;
+            this.lblKey.Text = "Key";
+            // 
+            // lblPollRate
+            // 
+            this.lblPollRate.AutoSize = true;
+            this.lblPollRate.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPollRate.ForeColor = System.Drawing.Color.Silver;
+            this.lblPollRate.Location = new System.Drawing.Point(13, 169);
+            this.lblPollRate.Name = "lblPollRate";
+            this.lblPollRate.Size = new System.Drawing.Size(60, 17);
+            this.lblPollRate.TabIndex = 18;
+            this.lblPollRate.Text = "Poll Rate";
+            // 
+            // lblPrioritize
+            // 
+            this.lblPrioritize.AutoSize = true;
+            this.lblPrioritize.Enabled = false;
+            this.lblPrioritize.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrioritize.ForeColor = System.Drawing.Color.Silver;
+            this.lblPrioritize.Location = new System.Drawing.Point(14, 325);
+            this.lblPrioritize.Name = "lblPrioritize";
+            this.lblPrioritize.Size = new System.Drawing.Size(58, 17);
+            this.lblPrioritize.TabIndex = 17;
+            this.lblPrioritize.Text = "Prioritize";
+            // 
+            // cmbxPrioritize
+            // 
+            this.cmbxPrioritize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.cmbxPrioritize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxPrioritize.Enabled = false;
+            this.cmbxPrioritize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbxPrioritize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbxPrioritize.ForeColor = System.Drawing.Color.Silver;
+            this.cmbxPrioritize.FormattingEnabled = true;
+            this.cmbxPrioritize.Items.AddRange(new object[] {
+            "Cookie Growth",
+            "Relics",
+            "Prestiging",
+            "Everything"});
+            this.cmbxPrioritize.Location = new System.Drawing.Point(197, 321);
+            this.cmbxPrioritize.Name = "cmbxPrioritize";
+            this.cmbxPrioritize.Size = new System.Drawing.Size(316, 21);
+            this.cmbxPrioritize.TabIndex = 16;
+            // 
+            // numInflatorThreshold
+            // 
+            this.numInflatorThreshold.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.numInflatorThreshold.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.numInflatorThreshold.DecimalPlaces = 2;
+            this.numInflatorThreshold.Enabled = false;
+            this.numInflatorThreshold.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numInflatorThreshold.ForeColor = System.Drawing.Color.Silver;
+            this.numInflatorThreshold.Location = new System.Drawing.Point(197, 293);
+            this.numInflatorThreshold.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numInflatorThreshold.Name = "numInflatorThreshold";
+            this.numInflatorThreshold.Size = new System.Drawing.Size(60, 22);
+            this.numInflatorThreshold.TabIndex = 15;
+            this.numInflatorThreshold.Value = new decimal(new int[] {
+            200,
+            0,
+            0,
+            131072});
+            // 
+            // lblInflatorThreshold
+            // 
+            this.lblInflatorThreshold.AutoSize = true;
+            this.lblInflatorThreshold.Enabled = false;
+            this.lblInflatorThreshold.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInflatorThreshold.ForeColor = System.Drawing.Color.Silver;
+            this.lblInflatorThreshold.Location = new System.Drawing.Point(14, 296);
+            this.lblInflatorThreshold.Name = "lblInflatorThreshold";
+            this.lblInflatorThreshold.Size = new System.Drawing.Size(135, 17);
+            this.lblInflatorThreshold.TabIndex = 14;
+            this.lblInflatorThreshold.Text = "Profit Inflator Treshold";
+            // 
+            // numProfitThreshold
+            // 
+            this.numProfitThreshold.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.numProfitThreshold.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.numProfitThreshold.DecimalPlaces = 2;
+            this.numProfitThreshold.Enabled = false;
+            this.numProfitThreshold.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numProfitThreshold.ForeColor = System.Drawing.Color.Silver;
+            this.numProfitThreshold.Location = new System.Drawing.Point(197, 264);
+            this.numProfitThreshold.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numProfitThreshold.Name = "numProfitThreshold";
+            this.numProfitThreshold.Size = new System.Drawing.Size(60, 22);
+            this.numProfitThreshold.TabIndex = 13;
+            this.numProfitThreshold.Value = new decimal(new int[] {
+            150,
+            0,
+            0,
+            131072});
+            // 
+            // lblProfitThreshold
+            // 
+            this.lblProfitThreshold.AutoSize = true;
+            this.lblProfitThreshold.Enabled = false;
+            this.lblProfitThreshold.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProfitThreshold.ForeColor = System.Drawing.Color.Silver;
+            this.lblProfitThreshold.Location = new System.Drawing.Point(14, 267);
+            this.lblProfitThreshold.Name = "lblProfitThreshold";
+            this.lblProfitThreshold.Size = new System.Drawing.Size(90, 17);
+            this.lblProfitThreshold.TabIndex = 12;
+            this.lblProfitThreshold.Text = "Profit Treshold";
+            // 
+            // cbxShowRecommendations
+            // 
+            this.cbxShowRecommendations.AutoSize = true;
+            this.cbxShowRecommendations.Checked = true;
+            this.cbxShowRecommendations.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbxShowRecommendations.Location = new System.Drawing.Point(197, 240);
+            this.cbxShowRecommendations.Name = "cbxShowRecommendations";
+            this.cbxShowRecommendations.Size = new System.Drawing.Size(15, 14);
+            this.cbxShowRecommendations.TabIndex = 11;
+            this.cbxShowRecommendations.UseVisualStyleBackColor = true;
+            this.cbxShowRecommendations.CheckedChanged += new System.EventHandler(this.cbxShowRecommendations_CheckedChanged);
+            // 
+            // lblShowRecommendations
+            // 
+            this.lblShowRecommendations.AutoSize = true;
+            this.lblShowRecommendations.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblShowRecommendations.ForeColor = System.Drawing.Color.Silver;
+            this.lblShowRecommendations.Location = new System.Drawing.Point(14, 238);
+            this.lblShowRecommendations.Name = "lblShowRecommendations";
+            this.lblShowRecommendations.Size = new System.Drawing.Size(155, 17);
+            this.lblShowRecommendations.TabIndex = 10;
+            this.lblShowRecommendations.Text = "Show Recommendations";
+            // 
+            // lblSettingsRecommendations
+            // 
+            this.lblSettingsRecommendations.AutoSize = true;
+            this.lblSettingsRecommendations.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblSettingsRecommendations.Location = new System.Drawing.Point(14, 214);
+            this.lblSettingsRecommendations.Name = "lblSettingsRecommendations";
+            this.lblSettingsRecommendations.Size = new System.Drawing.Size(131, 17);
+            this.lblSettingsRecommendations.TabIndex = 8;
+            this.lblSettingsRecommendations.Text = "Recommendations";
             // 
             // lblPolling
             // 
             this.lblPolling.AutoSize = true;
             this.lblPolling.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPolling.ForeColor = System.Drawing.Color.Silver;
-            this.lblPolling.Location = new System.Drawing.Point(147, 88);
+            this.lblPolling.Location = new System.Drawing.Point(255, 169);
             this.lblPolling.Name = "lblPolling";
             this.lblPolling.Size = new System.Drawing.Size(34, 17);
             this.lblPolling.TabIndex = 6;
@@ -183,6 +517,8 @@
             this.cmbxPolling.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.cmbxPolling.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbxPolling.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbxPolling.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbxPolling.ForeColor = System.Drawing.Color.Silver;
             this.cmbxPolling.FormattingEnabled = true;
             this.cmbxPolling.Items.AddRange(new object[] {
             "10",
@@ -191,62 +527,43 @@
             "45",
             "60",
             "120"});
-            this.cmbxPolling.Location = new System.Drawing.Point(88, 85);
+            this.cmbxPolling.Location = new System.Drawing.Point(196, 166);
             this.cmbxPolling.Name = "cmbxPolling";
-            this.cmbxPolling.Size = new System.Drawing.Size(53, 25);
+            this.cmbxPolling.Size = new System.Drawing.Size(53, 21);
             this.cmbxPolling.TabIndex = 4;
             // 
-            // lblPollApi
+            // lblSettingsAPI
             // 
-            this.lblPollApi.AutoSize = true;
-            this.lblPollApi.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblPollApi.Location = new System.Drawing.Point(13, 88);
-            this.lblPollApi.Name = "lblPollApi";
-            this.lblPollApi.Size = new System.Drawing.Size(55, 17);
-            this.lblPollApi.TabIndex = 3;
-            this.lblPollApi.Text = "Poll API";
+            this.lblSettingsAPI.AutoSize = true;
+            this.lblSettingsAPI.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblSettingsAPI.Location = new System.Drawing.Point(13, 119);
+            this.lblSettingsAPI.Name = "lblSettingsAPI";
+            this.lblSettingsAPI.Size = new System.Drawing.Size(28, 17);
+            this.lblSettingsAPI.TabIndex = 2;
+            this.lblSettingsAPI.Text = "API";
             // 
-            // lblApiKey
+            // tbxApiKey
             // 
-            this.lblApiKey.AutoSize = true;
-            this.lblApiKey.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblApiKey.Location = new System.Drawing.Point(13, 34);
-            this.lblApiKey.Name = "lblApiKey";
-            this.lblApiKey.Size = new System.Drawing.Size(54, 17);
-            this.lblApiKey.TabIndex = 2;
-            this.lblApiKey.Text = "API Key";
-            // 
-            // tbxApi
-            // 
-            this.tbxApi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.tbxApiKey.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbxApi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.tbxApi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbxApi.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxApi.ForeColor = System.Drawing.Color.Silver;
-            this.tbxApi.Location = new System.Drawing.Point(16, 54);
-            this.tbxApi.Name = "tbxApi";
-            this.tbxApi.Size = new System.Drawing.Size(193, 21);
-            this.tbxApi.TabIndex = 1;
-            this.tbxApi.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // pbxSettingClose
-            // 
-            this.pbxSettingClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbxSettingClose.Image = global::CookieCosmosWatcher.Properties.Resources.close_white;
-            this.pbxSettingClose.Location = new System.Drawing.Point(201, 4);
-            this.pbxSettingClose.Name = "pbxSettingClose";
-            this.pbxSettingClose.Size = new System.Drawing.Size(16, 16);
-            this.pbxSettingClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxSettingClose.TabIndex = 0;
-            this.pbxSettingClose.TabStop = false;
-            this.pbxSettingClose.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.tbxApiKey.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.tbxApiKey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbxApiKey.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxApiKey.ForeColor = System.Drawing.Color.Silver;
+            this.tbxApiKey.Location = new System.Drawing.Point(196, 139);
+            this.tbxApiKey.Name = "tbxApiKey";
+            this.tbxApiKey.Size = new System.Drawing.Size(316, 21);
+            this.tbxApiKey.TabIndex = 1;
+            this.tbxApiKey.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // panelMain
             // 
             this.panelMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelMain.Controls.Add(this.pbxRefresh);
+            this.panelMain.Controls.Add(this.panelItems);
+            this.panelMain.Controls.Add(this.PanelRecommendations);
             this.panelMain.Controls.Add(this.lblCookieValueValue);
             this.panelMain.Controls.Add(this.lblCookieValue);
             this.panelMain.Controls.Add(this.lblCanPrestigeValue);
@@ -288,8 +605,6 @@
             this.panelMain.Controls.Add(this.lblMidnightCalcValue);
             this.panelMain.Controls.Add(this.lblServerTimeValue);
             this.panelMain.Controls.Add(this.lblServer);
-            this.panelMain.Controls.Add(this.cmbxServerSeleect);
-            this.panelMain.Controls.Add(this.lblServerSelect);
             this.panelMain.Controls.Add(this.lblGeneral);
             this.panelMain.Controls.Add(this.lblItems);
             this.panelMain.Controls.Add(this.lblCookies);
@@ -298,7 +613,6 @@
             this.panelMain.Controls.Add(this.lblDailyReady);
             this.panelMain.Controls.Add(this.lblServerTime);
             this.panelMain.Controls.Add(this.lblMidnightCalc);
-            this.panelMain.Controls.Add(this.dataItems);
             this.panelMain.Controls.Add(this.pictureBox10);
             this.panelMain.Controls.Add(this.pictureBox9);
             this.panelMain.Controls.Add(this.pictureBox8);
@@ -335,12 +649,101 @@
             this.panelMain.Controls.Add(this.lblHolding);
             this.panelMain.Controls.Add(this.lblPrice);
             this.panelMain.Controls.Add(this.pbxSlime);
-            this.panelMain.Controls.Add(this.lblHelp);
             this.panelMain.Controls.Add(this.pbxSettings);
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(526, 919);
+            this.panelMain.Size = new System.Drawing.Size(526, 787);
             this.panelMain.TabIndex = 8;
+            // 
+            // panelItems
+            // 
+            this.panelItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelItems.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelItems.Controls.Add(this.dataItems);
+            this.panelItems.Location = new System.Drawing.Point(13, 591);
+            this.panelItems.Name = "panelItems";
+            this.panelItems.Size = new System.Drawing.Size(500, 185);
+            this.panelItems.TabIndex = 102;
+            // 
+            // dataItems
+            // 
+            this.dataItems.AllowUserToAddRows = false;
+            this.dataItems.AllowUserToDeleteRows = false;
+            this.dataItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataItems.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.dataItems.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Type,
+            this.Item,
+            this.Amount});
+            this.dataItems.Location = new System.Drawing.Point(0, 0);
+            this.dataItems.Name = "dataItems";
+            this.dataItems.RowHeadersVisible = false;
+            this.dataItems.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dataItems.ShowEditingIcon = false;
+            this.dataItems.ShowRowErrors = false;
+            this.dataItems.Size = new System.Drawing.Size(515, 183);
+            this.dataItems.StandardTab = true;
+            this.dataItems.TabIndex = 43;
+            // 
+            // Type
+            // 
+            this.Type.FillWeight = 25F;
+            this.Type.HeaderText = "Type";
+            this.Type.Name = "Type";
+            // 
+            // Item
+            // 
+            this.Item.FillWeight = 50F;
+            this.Item.HeaderText = "Item";
+            this.Item.Name = "Item";
+            // 
+            // Amount
+            // 
+            this.Amount.FillWeight = 25F;
+            this.Amount.HeaderText = "Amount";
+            this.Amount.Name = "Amount";
+            // 
+            // PanelRecommendations
+            // 
+            this.PanelRecommendations.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PanelRecommendations.Controls.Add(this.lbxRecommendations);
+            this.PanelRecommendations.Controls.Add(this.lblRecommendations);
+            this.PanelRecommendations.Location = new System.Drawing.Point(210, 443);
+            this.PanelRecommendations.Name = "PanelRecommendations";
+            this.PanelRecommendations.Size = new System.Drawing.Size(302, 104);
+            this.PanelRecommendations.TabIndex = 101;
+            // 
+            // lbxRecommendations
+            // 
+            this.lbxRecommendations.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.lbxRecommendations.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbxRecommendations.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbxRecommendations.ForeColor = System.Drawing.Color.Silver;
+            this.lbxRecommendations.FormattingEnabled = true;
+            this.lbxRecommendations.IntegralHeight = false;
+            this.lbxRecommendations.ItemHeight = 16;
+            this.lbxRecommendations.Location = new System.Drawing.Point(6, 24);
+            this.lbxRecommendations.Name = "lbxRecommendations";
+            this.lbxRecommendations.Size = new System.Drawing.Size(319, 75);
+            this.lbxRecommendations.TabIndex = 103;
+            // 
+            // lblRecommendations
+            // 
+            this.lblRecommendations.AutoSize = true;
+            this.lblRecommendations.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblRecommendations.Location = new System.Drawing.Point(3, 4);
+            this.lblRecommendations.Name = "lblRecommendations";
+            this.lblRecommendations.Size = new System.Drawing.Size(131, 17);
+            this.lblRecommendations.TabIndex = 102;
+            this.lblRecommendations.Text = "Recommendations";
             // 
             // lblCookieValueValue
             // 
@@ -650,16 +1053,6 @@
             this.lblCookieHolding.Text = "0";
             this.lblCookieHolding.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pbxCookie
-            // 
-            this.pbxCookie.Image = global::CookieCosmosWatcher.Properties.Resources.cookie;
-            this.pbxCookie.Location = new System.Drawing.Point(23, 223);
-            this.pbxCookie.Name = "pbxCookie";
-            this.pbxCookie.Size = new System.Drawing.Size(24, 24);
-            this.pbxCookie.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxCookie.TabIndex = 68;
-            this.pbxCookie.TabStop = false;
-            // 
             // label46
             // 
             this.label46.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -789,38 +1182,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblServer.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblServer.ForeColor = System.Drawing.Color.White;
-            this.lblServer.Location = new System.Drawing.Point(12, 6);
+            this.lblServer.Location = new System.Drawing.Point(45, 6);
             this.lblServer.Name = "lblServer";
-            this.lblServer.Size = new System.Drawing.Size(280, 21);
+            this.lblServer.Size = new System.Drawing.Size(438, 21);
             this.lblServer.TabIndex = 55;
             this.lblServer.Text = "Server Name";
             this.lblServer.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // cmbxServerSeleect
-            // 
-            this.cmbxServerSeleect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbxServerSeleect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.cmbxServerSeleect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbxServerSeleect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbxServerSeleect.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbxServerSeleect.ForeColor = System.Drawing.Color.Silver;
-            this.cmbxServerSeleect.FormattingEnabled = true;
-            this.cmbxServerSeleect.Location = new System.Drawing.Point(367, 3);
-            this.cmbxServerSeleect.Name = "cmbxServerSeleect";
-            this.cmbxServerSeleect.Size = new System.Drawing.Size(125, 24);
-            this.cmbxServerSeleect.TabIndex = 54;
-            this.cmbxServerSeleect.SelectedIndexChanged += new System.EventHandler(this.cmbxServerSeleect_SelectedIndexChanged);
-            // 
-            // lblServerSelect
-            // 
-            this.lblServerSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblServerSelect.AutoSize = true;
-            this.lblServerSelect.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblServerSelect.Location = new System.Drawing.Point(311, 6);
-            this.lblServerSelect.Name = "lblServerSelect";
-            this.lblServerSelect.Size = new System.Drawing.Size(50, 17);
-            this.lblServerSelect.TabIndex = 53;
-            this.lblServerSelect.Text = "Server:";
             // 
             // lblGeneral
             // 
@@ -838,7 +1205,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblItems.AutoSize = true;
             this.lblItems.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblItems.Location = new System.Drawing.Point(13, 579);
+            this.lblItems.Location = new System.Drawing.Point(13, 571);
             this.lblItems.Name = "lblItems";
             this.lblItems.Size = new System.Drawing.Size(42, 17);
             this.lblItems.TabIndex = 51;
@@ -872,9 +1239,9 @@
             this.lblDailyTime.ForeColor = System.Drawing.Color.Silver;
             this.lblDailyTime.Location = new System.Drawing.Point(13, 96);
             this.lblDailyTime.Name = "lblDailyTime";
-            this.lblDailyTime.Size = new System.Drawing.Size(70, 17);
+            this.lblDailyTime.Size = new System.Drawing.Size(71, 17);
             this.lblDailyTime.TabIndex = 48;
-            this.lblDailyTime.Text = "Daily Time:";
+            this.lblDailyTime.Text = "Next Daily:";
             // 
             // lblDailyReady
             // 
@@ -892,7 +1259,7 @@
             this.lblServerTime.AutoSize = true;
             this.lblServerTime.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblServerTime.ForeColor = System.Drawing.Color.Silver;
-            this.lblServerTime.Location = new System.Drawing.Point(12, 54);
+            this.lblServerTime.Location = new System.Drawing.Point(13, 54);
             this.lblServerTime.Name = "lblServerTime";
             this.lblServerTime.Size = new System.Drawing.Size(80, 17);
             this.lblServerTime.TabIndex = 45;
@@ -908,48 +1275,6 @@
             this.lblMidnightCalc.Size = new System.Drawing.Size(94, 17);
             this.lblMidnightCalc.TabIndex = 44;
             this.lblMidnightCalc.Text = "Midnight Calc:";
-            // 
-            // dataItems
-            // 
-            this.dataItems.AllowUserToAddRows = false;
-            this.dataItems.AllowUserToDeleteRows = false;
-            this.dataItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataItems.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.dataItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Type,
-            this.Item,
-            this.Amount});
-            this.dataItems.Location = new System.Drawing.Point(12, 599);
-            this.dataItems.Name = "dataItems";
-            this.dataItems.RowHeadersVisible = false;
-            this.dataItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataItems.ShowEditingIcon = false;
-            this.dataItems.ShowRowErrors = false;
-            this.dataItems.Size = new System.Drawing.Size(505, 317);
-            this.dataItems.StandardTab = true;
-            this.dataItems.TabIndex = 43;
-            // 
-            // Type
-            // 
-            this.Type.FillWeight = 25F;
-            this.Type.HeaderText = "Type";
-            this.Type.Name = "Type";
-            // 
-            // Item
-            // 
-            this.Item.FillWeight = 50F;
-            this.Item.HeaderText = "Item";
-            this.Item.Name = "Item";
-            // 
-            // Amount
-            // 
-            this.Amount.FillWeight = 25F;
-            this.Amount.HeaderText = "Amount";
-            this.Amount.Name = "Amount";
             // 
             // pictureBox10
             // 
@@ -1241,16 +1566,6 @@
             this.lblFirePrice.Text = "0";
             this.lblFirePrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pbxMillionaire
-            // 
-            this.pbxMillionaire.Image = global::CookieCosmosWatcher.Properties.Resources.millionaire;
-            this.pbxMillionaire.Location = new System.Drawing.Point(23, 403);
-            this.pbxMillionaire.Name = "pbxMillionaire";
-            this.pbxMillionaire.Size = new System.Drawing.Size(24, 24);
-            this.pbxMillionaire.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxMillionaire.TabIndex = 12;
-            this.pbxMillionaire.TabStop = false;
-            // 
             // lblSlimePrice
             // 
             this.lblSlimePrice.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1261,6 +1576,101 @@
             this.lblSlimePrice.TabIndex = 11;
             this.lblSlimePrice.Text = "0";
             this.lblSlimePrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPaid
+            // 
+            this.lblPaid.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPaid.ForeColor = System.Drawing.Color.Silver;
+            this.lblPaid.Location = new System.Drawing.Point(196, 197);
+            this.lblPaid.Name = "lblPaid";
+            this.lblPaid.Size = new System.Drawing.Size(57, 22);
+            this.lblPaid.TabIndex = 6;
+            this.lblPaid.Text = "Paid";
+            this.lblPaid.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblHolding
+            // 
+            this.lblHolding.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHolding.ForeColor = System.Drawing.Color.Silver;
+            this.lblHolding.Location = new System.Drawing.Point(133, 197);
+            this.lblHolding.Name = "lblHolding";
+            this.lblHolding.Size = new System.Drawing.Size(57, 22);
+            this.lblHolding.TabIndex = 5;
+            this.lblHolding.Text = "Holding";
+            this.lblHolding.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPrice
+            // 
+            this.lblPrice.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrice.ForeColor = System.Drawing.Color.Silver;
+            this.lblPrice.Location = new System.Drawing.Point(70, 197);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(57, 22);
+            this.lblPrice.TabIndex = 4;
+            this.lblPrice.Text = "Price";
+            this.lblPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblHelp
+            // 
+            this.lblHelp.AutoSize = true;
+            this.lblHelp.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblHelp.Location = new System.Drawing.Point(777, 32);
+            this.lblHelp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHelp.Name = "lblHelp";
+            this.lblHelp.Size = new System.Drawing.Size(263, 136);
+            this.lblHelp.TabIndex = 2;
+            this.lblHelp.Text = resources.GetString("lblHelp.Text");
+            this.lblHelp.Visible = true;
+            // 
+            // timer
+            // 
+            this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // toolTip
+            // 
+            this.toolTip.AutomaticDelay = 0;
+            this.toolTip.AutoPopDelay = 15000;
+            this.toolTip.BackColor = System.Drawing.Color.White;
+            this.toolTip.ForeColor = System.Drawing.Color.White;
+            this.toolTip.InitialDelay = 0;
+            this.toolTip.OwnerDraw = true;
+            this.toolTip.ReshowDelay = 0;
+            this.toolTip.ShowAlways = true;
+            this.toolTip.Draw += new System.Windows.Forms.DrawToolTipEventHandler(this.toolTip_Draw);
+            // 
+            // pbxRefresh
+            // 
+            this.pbxRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbxRefresh.Image = global::CookieCosmosWatcher.Properties.Resources.refresh__1_;
+            this.pbxRefresh.Location = new System.Drawing.Point(502, 54);
+            this.pbxRefresh.Margin = new System.Windows.Forms.Padding(4);
+            this.pbxRefresh.Name = "pbxRefresh";
+            this.pbxRefresh.Size = new System.Drawing.Size(20, 20);
+            this.pbxRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxRefresh.TabIndex = 103;
+            this.pbxRefresh.TabStop = false;
+            this.pbxRefresh.Click += new System.EventHandler(this.pbxRefresh_Click);
+            // 
+            // pbxCookie
+            // 
+            this.pbxCookie.Image = global::CookieCosmosWatcher.Properties.Resources.cookie;
+            this.pbxCookie.Location = new System.Drawing.Point(23, 223);
+            this.pbxCookie.Name = "pbxCookie";
+            this.pbxCookie.Size = new System.Drawing.Size(24, 24);
+            this.pbxCookie.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxCookie.TabIndex = 68;
+            this.pbxCookie.TabStop = false;
+            // 
+            // pbxMillionaire
+            // 
+            this.pbxMillionaire.Image = global::CookieCosmosWatcher.Properties.Resources.millionaire;
+            this.pbxMillionaire.Location = new System.Drawing.Point(23, 403);
+            this.pbxMillionaire.Name = "pbxMillionaire";
+            this.pbxMillionaire.Size = new System.Drawing.Size(24, 24);
+            this.pbxMillionaire.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxMillionaire.TabIndex = 12;
+            this.pbxMillionaire.TabStop = false;
             // 
             // pbxNitro
             // 
@@ -1302,39 +1712,6 @@
             this.pbxFire.TabIndex = 7;
             this.pbxFire.TabStop = false;
             // 
-            // lblPaid
-            // 
-            this.lblPaid.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPaid.ForeColor = System.Drawing.Color.Silver;
-            this.lblPaid.Location = new System.Drawing.Point(196, 197);
-            this.lblPaid.Name = "lblPaid";
-            this.lblPaid.Size = new System.Drawing.Size(57, 22);
-            this.lblPaid.TabIndex = 6;
-            this.lblPaid.Text = "Paid";
-            this.lblPaid.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblHolding
-            // 
-            this.lblHolding.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHolding.ForeColor = System.Drawing.Color.Silver;
-            this.lblHolding.Location = new System.Drawing.Point(133, 197);
-            this.lblHolding.Name = "lblHolding";
-            this.lblHolding.Size = new System.Drawing.Size(57, 22);
-            this.lblHolding.TabIndex = 5;
-            this.lblHolding.Text = "Holding";
-            this.lblHolding.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblPrice
-            // 
-            this.lblPrice.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.ForeColor = System.Drawing.Color.Silver;
-            this.lblPrice.Location = new System.Drawing.Point(70, 197);
-            this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(57, 22);
-            this.lblPrice.TabIndex = 4;
-            this.lblPrice.Text = "Price";
-            this.lblPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // pbxSlime
             // 
             this.pbxSlime.Image = global::CookieCosmosWatcher.Properties.Resources.slime;
@@ -1345,72 +1722,74 @@
             this.pbxSlime.TabIndex = 3;
             this.pbxSlime.TabStop = false;
             // 
-            // lblHelp
-            // 
-            this.lblHelp.AutoSize = true;
-            this.lblHelp.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblHelp.Location = new System.Drawing.Point(777, 32);
-            this.lblHelp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblHelp.Name = "lblHelp";
-            this.lblHelp.Size = new System.Drawing.Size(263, 136);
-            this.lblHelp.TabIndex = 2;
-            this.lblHelp.Text = resources.GetString("lblHelp.Text");
-            this.lblHelp.Visible = false;
-            // 
             // pbxSettings
             // 
             this.pbxSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbxSettings.Image = ((System.Drawing.Image)(resources.GetObject("pbxSettings.Image")));
-            this.pbxSettings.Location = new System.Drawing.Point(499, 4);
+            this.pbxSettings.Image = global::CookieCosmosWatcher.Properties.Resources.menu;
+            this.pbxSettings.Location = new System.Drawing.Point(502, 4);
             this.pbxSettings.Margin = new System.Windows.Forms.Padding(4);
             this.pbxSettings.Name = "pbxSettings";
-            this.pbxSettings.Size = new System.Drawing.Size(23, 22);
+            this.pbxSettings.Size = new System.Drawing.Size(20, 20);
             this.pbxSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxSettings.TabIndex = 0;
             this.pbxSettings.TabStop = false;
             this.pbxSettings.Click += new System.EventHandler(this.pbxSettings_Click);
             // 
-            // timer
+            // pbxSettingClose
             // 
-            this.timer.Interval = 1000;
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            this.pbxSettingClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbxSettingClose.Image = global::CookieCosmosWatcher.Properties.Resources.close_white;
+            this.pbxSettingClose.Location = new System.Drawing.Point(506, 3);
+            this.pbxSettingClose.Name = "pbxSettingClose";
+            this.pbxSettingClose.Size = new System.Drawing.Size(16, 16);
+            this.pbxSettingClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxSettingClose.TabIndex = 0;
+            this.pbxSettingClose.TabStop = false;
+            this.pbxSettingClose.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // toolTip
+            // lblVersion
             // 
-            this.toolTip.AutomaticDelay = 0;
-            this.toolTip.AutoPopDelay = 15000;
-            this.toolTip.BackColor = System.Drawing.Color.White;
-            this.toolTip.ForeColor = System.Drawing.Color.White;
-            this.toolTip.InitialDelay = 0;
-            this.toolTip.OwnerDraw = true;
-            this.toolTip.ReshowDelay = 0;
-            this.toolTip.ShowAlways = true;
-            this.toolTip.Draw += new System.Windows.Forms.DrawToolTipEventHandler(this.toolTip_Draw);
+            this.lblVersion.AutoSize = true;
+            this.lblVersion.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVersion.ForeColor = System.Drawing.Color.Silver;
+            this.lblVersion.Location = new System.Drawing.Point(3, 1);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(31, 16);
+            this.lblVersion.TabIndex = 59;
+            this.lblVersion.Text = "v0.2";
+            this.lblVersion.Visible = false;
             // 
-            // Form1
+            // CookieCosmos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.ClientSize = new System.Drawing.Size(526, 919);
+            this.ClientSize = new System.Drawing.Size(526, 787);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelSettings);
             this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Form1";
+            this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(542, 605);
+            this.Name = "CookieCosmos";
             this.Text = "Cookie Cosmos Watcher";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panelSettings.ResumeLayout(false);
             this.panelSettings.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxSettingClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numInflatorThreshold)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numProfitThreshold)).EndInit();
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxCookie)).EndInit();
+            this.panelItems.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataItems)).EndInit();
+            this.PanelRecommendations.ResumeLayout(false);
+            this.PanelRecommendations.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxRefresh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxCookie)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxMillionaire)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxNitro)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDragon)).EndInit();
@@ -1418,6 +1797,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbxFire)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxSlime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxSettings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxSettingClose)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1427,8 +1807,8 @@
         private System.Windows.Forms.PictureBox pbxSettings;
         private System.Windows.Forms.Panel panelSettings;
         private System.Windows.Forms.PictureBox pbxSettingClose;
-        private System.Windows.Forms.TextBox tbxApi;
-        private System.Windows.Forms.Label lblApiKey;
+        private System.Windows.Forms.TextBox tbxApiKey;
+        private System.Windows.Forms.Label lblSettingsAPI;
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Label lblHelp;
         private System.Windows.Forms.PictureBox pbxSlime;
@@ -1458,8 +1838,6 @@
         private System.Windows.Forms.PictureBox pbxDragon;
         private System.Windows.Forms.Label lblPolling;
         private System.Windows.Forms.ComboBox cmbxPolling;
-        private System.Windows.Forms.Label lblPollApi;
-        private System.Windows.Forms.Label lblServerSelect;
         private System.Windows.Forms.Label lblGeneral;
         private System.Windows.Forms.Label lblItems;
         private System.Windows.Forms.Label lblCookies;
@@ -1477,7 +1855,6 @@
         private System.Windows.Forms.Label lblGoldenHolding;
         private System.Windows.Forms.Label lblHeartsHolding;
         private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.ComboBox cmbxServerSeleect;
         private System.Windows.Forms.Label lblServer;
         private System.Windows.Forms.Label lblDailyReadyValue;
         private System.Windows.Forms.Label lblDailyTimeValue;
@@ -1527,6 +1904,34 @@
         private System.Windows.Forms.Label lblCookieValue;
         private System.Windows.Forms.Label lblCanPrestigeValue;
         private System.Windows.Forms.Label lblCanPrestige;
+        private System.Windows.Forms.Panel PanelRecommendations;
+        private System.Windows.Forms.ListBox lbxRecommendations;
+        private System.Windows.Forms.Label lblRecommendations;
+        private System.Windows.Forms.CheckBox cbxDisplayItems;
+        private System.Windows.Forms.Label lblDisplayItems;
+        private System.Windows.Forms.Label lblSettingsDisplay;
+        private System.Windows.Forms.Label lblKey;
+        private System.Windows.Forms.Label lblPollRate;
+        private System.Windows.Forms.Label lblPrioritize;
+        private System.Windows.Forms.ComboBox cmbxPrioritize;
+        private System.Windows.Forms.NumericUpDown numInflatorThreshold;
+        private System.Windows.Forms.Label lblInflatorThreshold;
+        private System.Windows.Forms.NumericUpDown numProfitThreshold;
+        private System.Windows.Forms.Label lblProfitThreshold;
+        private System.Windows.Forms.CheckBox cbxShowRecommendations;
+        private System.Windows.Forms.Label lblShowRecommendations;
+        private System.Windows.Forms.Label lblSettingsRecommendations;
+        private System.Windows.Forms.CheckBox cbxKeepTop;
+        private System.Windows.Forms.Label lblKeepTop;
+        private System.Windows.Forms.Label lblCheckingUpdate;
+        private System.Windows.Forms.Button btnCheckUpdate;
+        private System.Windows.Forms.Label lblUpdates;
+        private System.Windows.Forms.Label lblSServer;
+        private System.Windows.Forms.ComboBox cmbxServerSelect;
+        private System.Windows.Forms.Label lblSettingsGeneral;
+        private System.Windows.Forms.Panel panelItems;
+        private System.Windows.Forms.PictureBox pbxRefresh;
+        private System.Windows.Forms.Label lblVersion;
     }
 }
 
