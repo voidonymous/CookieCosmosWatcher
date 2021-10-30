@@ -12,3 +12,4 @@ C:\Users\corru\Documents\GitHub\CookieCosmosWatcher\CookieCosmosWatcher\CookieCo
 C:\Users\corru\Documents\GitHub\CookieCosmosWatcher\CookieCosmosWatcher\CookieCosmosWatcher\obj\Debug\CookieCosmosWatcher.pdb
 C:\Users\corru\Documents\GitHub\CookieCosmosWatcher\CookieCosmosWatcher\CookieCosmosWatcher\obj\Debug\CookieCosmosWatcher.csprojAssemblyReference.cache
 C:\Users\corru\Documents\GitHub\CookieCosmosWatcher\CookieCosmosWatcher\CookieCosmosWatcher\obj\Debug\CookieCosmosWatcher.CookieCosmos.resources
+C:\Users\corru\Documents\GitHub\CookieCosmosWatcher\CookieCosmosWatcher\CookieCosmosWatcher\obj\Debug\CookieCosmosWatcher.API_Generator.resources

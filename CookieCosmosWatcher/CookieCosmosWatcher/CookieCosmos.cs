@@ -445,5 +445,11 @@ namespace CookieCosmosWatcher
                 Size = MinimumSize;
             }
         }
+
+        private void lblExtraApiGen_Click(object sender, EventArgs e)
+        {
+            API_Generator apgen = new API_Generator(tbxApiKey.Text);
+            apgen.Show();
+        }
     }
 }

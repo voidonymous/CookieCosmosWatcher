@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API_Generator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="API_Generator.Designer.cs">
+      <DependentUpon>API_Generator.cs</DependentUpon>
+    </Compile>
     <Compile Include="CookieCosmos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +69,9 @@
     <Compile Include="JsonData\RootPlayer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="API_Generator.resx">
+      <DependentUpon>API_Generator.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CookieCosmos.resx">
       <DependentUpon>CookieCosmos.cs</DependentUpon>
     </EmbeddedResource>
