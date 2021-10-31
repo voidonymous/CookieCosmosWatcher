@@ -13,6 +13,7 @@ using Json.Net;
 using CookieCosmosWatcher.JsonData;
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace CookieCosmosWatcher
 {
@@ -31,10 +32,17 @@ namespace CookieCosmosWatcher
         private DateTime current_server_daily;
         private bool daily_check = false;
         DataGridViewCellStyle style;
+        private bool settings_updated = false;
 
         private Color good_colour = Color.FromArgb(128, 255, 128);
         private Color bad_colour = Color.FromArgb(255, 128, 128);
         private Color middle_colour = Color.Yellow;
+
+        // settings timer
+        private bool init = true;
+        private int settings_being_saved = 0;
+        private int settings_counter = 0;
+
 
         struct Cookie_Controls
         {
@@ -122,6 +130,7 @@ namespace CookieCosmosWatcher
                 LoadData();
 
             api_key_changed = false;
+            init = false;
         }
 
         private void LoadInfo()
@@ -403,7 +412,7 @@ namespace CookieCosmosWatcher
         private void toolTip_Draw(object sender, DrawToolTipEventArgs e)
         {
             TextFormatFlags sf = TextFormatFlags.VerticalCenter |
-                                        TextFormatFlags.NoFullWidthCharacterBreak;
+                                 TextFormatFlags.NoFullWidthCharacterBreak;
 
             e.Graphics.Clear(Color.FromArgb(150, 132, 136, 138));
             toolTip.BackColor = Color.FromArgb(150, 132, 136, 138);
@@ -419,37 +428,80 @@ namespace CookieCosmosWatcher
 
         private void cbxKeepTop_CheckedChanged(object sender, EventArgs e)
         {
-            TopMost = !TopMost;
+            TopMost = cbxKeepTop.Checked ? true : false;
         }
 
         private void cbxShowRecommendations_CheckedChanged(object sender, EventArgs e)
         {
-            lblProfitThreshold.Enabled = !lblProfitThreshold.Visible;
-            lblInflatorThreshold.Enabled = !lblInflatorThreshold.Enabled;
-            lblPrioritize.Enabled = !lblPrioritize.Enabled;
-            numProfitThreshold.Enabled = !numProfitThreshold.Enabled;
-            numInflatorThreshold.Enabled = !numInflatorThreshold.Enabled;
-            cmbxPrioritize.Enabled = !cmbxPrioritize.Enabled;
-        }
-
-        private void cbxDisplayItems_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cbxDisplayItems.Checked)
-            {
-                panelItems.Visible = true;
-
-            }
-            else
-            {
-                panelItems.Visible = false;
-                Size = MinimumSize;
-            }
+            lblProfitThreshold.Enabled = cbxShowRecommendations.Checked ? true : false;
+            lblInflatorThreshold.Enabled = cbxShowRecommendations.Checked ? true : false;
+            lblPrioritize.Enabled = cbxShowRecommendations.Checked ? true : false;
+            numProfitThreshold.Enabled = cbxShowRecommendations.Checked ? true : false;
+            numInflatorThreshold.Enabled = cbxShowRecommendations.Checked ? true : false;
+            cmbxPrioritize.Enabled = cbxShowRecommendations.Checked ? true : false;
         }
 
         private void lblExtraApiGen_Click(object sender, EventArgs e)
         {
-            API_Generator apgen = new API_Generator(tbxApiKey.Text);
+            API_Generator apgen = new API_Generator(tbxDataset, tbxApiKey.Text);
             apgen.Show();
+        }
+
+        private void lblGithub_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/voidonymous/CookieCosmosWatcher");
+        }
+
+        private void SaveSettings()
+        {
+            if (!init)
+            {
+                settings_being_saved = 1;
+                lblSettingsSaved.Visible = true;
+                timerSettingsSaved.Start();
+            }
+        }
+
+        private void timerSettingsSaved_Tick(object sender, EventArgs e)
+        {
+            if (settings_being_saved == 1)
+            {
+                if (lblSettingsSaved.Top >= 6)
+                {
+                    settings_being_saved = 2;
+                    settings_counter = 0;
+                }
+                else
+                    lblSettingsSaved.Location = new Point(lblSettingsSaved.Left, lblSettingsSaved.Top + 1);
+            }
+            else if (settings_being_saved == 2)
+            {
+                settings_counter++;
+                if (settings_counter >= 100)
+                    settings_being_saved = 3;
+            }
+            else if (settings_being_saved == 3)
+            {
+                if (lblSettingsSaved.Top + lblSettingsSaved.Height <= -2)
+                {
+                    settings_being_saved = 0;
+                    lblSettingsSaved.Visible = false;
+                }
+                else
+                    lblSettingsSaved.Location = new Point(lblSettingsSaved.Left, lblSettingsSaved.Top - 1);
+            }
+
+            Application.DoEvents();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            SaveSettings();
+        }
+
+        private void cmbxPolling_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SaveSettings();
         }
     }
 }

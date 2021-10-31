@@ -119,7 +119,7 @@
   </resheader>
   <data name="lblOverview.Text" xml:space="preserve">
     <value>The information that you can retrieve from the API's can include a range of different datasets depending on your need. Keeping the datasets to a minimum insures the speed and reliability of the API.
-This API Generator will help generate the required url depending on your selection of API functions.</value>
+This API Generator will help generate the required url depending on your selection of API datasets.</value>
   </data>
   <metadata name="timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>

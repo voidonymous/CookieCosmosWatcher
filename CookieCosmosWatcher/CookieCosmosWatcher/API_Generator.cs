@@ -12,16 +12,17 @@ namespace CookieCosmosWatcher
 {
     public partial class API_Generator : Form
     {
-        public API_Generator(string form_api_key = "")
+        public API_Generator(TextBox datasets, string form_api_key = "")
         {
             api_key = form_api_key;
+            tbxDataSets = datasets;
             InitializeComponent();
         }
 
         private string base_url = "https://api.cookiecosmosbot.com/v1.2/";
-        private string selected_api = "";
         private string api_key = "";
         private int selected_dataset_binary = 0;
+        private TextBox tbxDataSets;
 
         private int counter = 0;
         private int counter_max = 2;
@@ -29,49 +30,13 @@ namespace CookieCosmosWatcher
         private void API_Generator_Load(object sender, EventArgs e)
         {
             tbxApiKey.Text = api_key;
-            selected_dataset_binary = 1;
-            selected_api = "player";
+            selected_dataset_binary = 0;
             MakeUrl();
         }
 
         private void MakeUrl()
         {
-            tbxApiUrl.Text = $"{base_url}{selected_api}/?t={(api_key != "" ? api_key : "{api_key}")}{(selected_dataset_binary > 0 ? $"&f={selected_dataset_binary}" : "")}";
-        }
-
-        private void ClearSets()
-        {
-            foreach (CheckBox ch in panelPlayer.Controls)
-            {
-                if (ch.Enabled)
-                    ch.Checked = false;
-            }
-
-            foreach (CheckBox ch in panelData.Controls)
-            {
-                if (ch.Enabled)
-                    ch.Checked = false;
-            }
-        }
-
-        private void rdoPlayer_CheckedChanged(object sender, EventArgs e)
-        {
-            panelData.Visible = false;
-            panelPlayer.Visible = true;
-            ClearSets();
-            selected_dataset_binary = 1;
-            selected_api = "player";
-            MakeUrl();
-        }
-
-        private void rdoData_CheckedChanged(object sender, EventArgs e)
-        {
-            panelPlayer.Visible = false;
-            panelData.Visible = true;
-            ClearSets();
-            selected_dataset_binary = 0;
-            selected_api = "data";
-            MakeUrl();
+            tbxApiUrl.Text = $"{base_url}/?t={(api_key != "" ? api_key : "{api_key}")}{(selected_dataset_binary > 0 ? $"&f={selected_dataset_binary}" : "")}";
         }
 
         private void CalculateDataset(object sender, EventArgs e)
@@ -109,6 +74,11 @@ namespace CookieCosmosWatcher
         {
             api_key = tbxApiKey.Text;
             MakeUrl();
+        }
+
+        private void btnCopyToSettings_Click(object sender, EventArgs e)
+        {
+            tbxDataSets.Text = selected_dataset_binary.ToString();
         }
     }
 }

@@ -31,6 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CookieCosmos));
             this.panelSettings = new System.Windows.Forms.Panel();
+            this.lblSettingsSaved = new System.Windows.Forms.Label();
+            this.lblExtraApiGen = new System.Windows.Forms.Label();
+            this.lblGithub = new System.Windows.Forms.Label();
+            this.lblOfficialDiscord = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.lblStartWindows = new System.Windows.Forms.Label();
+            this.lblSettingsExtra = new System.Windows.Forms.Label();
             this.lblVersion = new System.Windows.Forms.Label();
             this.lblUpdates = new System.Windows.Forms.Label();
             this.lblSServer = new System.Windows.Forms.Label();
@@ -40,8 +47,6 @@
             this.lblKeepTop = new System.Windows.Forms.Label();
             this.lblCheckingUpdate = new System.Windows.Forms.Label();
             this.btnCheckUpdate = new System.Windows.Forms.Button();
-            this.cbxDisplayItems = new System.Windows.Forms.CheckBox();
-            this.lblDisplayItems = new System.Windows.Forms.Label();
             this.lblSettingsDisplay = new System.Windows.Forms.Label();
             this.lblKey = new System.Windows.Forms.Label();
             this.lblPollRate = new System.Windows.Forms.Label();
@@ -58,7 +63,9 @@
             this.cmbxPolling = new System.Windows.Forms.ComboBox();
             this.lblSettingsAPI = new System.Windows.Forms.Label();
             this.tbxApiKey = new System.Windows.Forms.TextBox();
+            this.pbxSettingClose = new System.Windows.Forms.PictureBox();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.pbxRefresh = new System.Windows.Forms.PictureBox();
             this.panelItems = new System.Windows.Forms.Panel();
             this.dataItems = new System.Windows.Forms.DataGridView();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -95,6 +102,7 @@
             this.lblSlimeNet = new System.Windows.Forms.Label();
             this.lblNet = new System.Windows.Forms.Label();
             this.lblCookieHolding = new System.Windows.Forms.Label();
+            this.pbxCookie = new System.Windows.Forms.PictureBox();
             this.label46 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
@@ -141,42 +149,38 @@
             this.lblNitroPrice = new System.Windows.Forms.Label();
             this.lblMechaPrice = new System.Windows.Forms.Label();
             this.lblFirePrice = new System.Windows.Forms.Label();
-            this.lblSlimePrice = new System.Windows.Forms.Label();
-            this.lblPaid = new System.Windows.Forms.Label();
-            this.lblHolding = new System.Windows.Forms.Label();
-            this.lblPrice = new System.Windows.Forms.Label();
-            this.lblHelp = new System.Windows.Forms.Label();
-            this.timer = new System.Windows.Forms.Timer(this.components);
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.pbxRefresh = new System.Windows.Forms.PictureBox();
-            this.pbxCookie = new System.Windows.Forms.PictureBox();
             this.pbxMillionaire = new System.Windows.Forms.PictureBox();
+            this.lblSlimePrice = new System.Windows.Forms.Label();
             this.pbxNitro = new System.Windows.Forms.PictureBox();
             this.pbxDragon = new System.Windows.Forms.PictureBox();
             this.pbxMecha = new System.Windows.Forms.PictureBox();
             this.pbxFire = new System.Windows.Forms.PictureBox();
+            this.lblPaid = new System.Windows.Forms.Label();
+            this.lblHolding = new System.Windows.Forms.Label();
+            this.lblPrice = new System.Windows.Forms.Label();
             this.pbxSlime = new System.Windows.Forms.PictureBox();
             this.pbxSettings = new System.Windows.Forms.PictureBox();
-            this.pbxSettingClose = new System.Windows.Forms.PictureBox();
-            this.lblSettingsExtra = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.lblStartWindows = new System.Windows.Forms.Label();
+            this.lblHelp = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.timerSettingsSaved = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblExtraApiGen = new System.Windows.Forms.Label();
+            this.tbxDataset = new System.Windows.Forms.TextBox();
+            this.lblChangelog = new System.Windows.Forms.Label();
             this.panelSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numInflatorThreshold)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numProfitThreshold)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxSettingClose)).BeginInit();
             this.panelMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxRefresh)).BeginInit();
             this.panelItems.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataItems)).BeginInit();
             this.PanelRecommendations.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxCookie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxRefresh)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxCookie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxMillionaire)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxNitro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDragon)).BeginInit();
@@ -184,7 +188,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbxFire)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxSlime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxSettings)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxSettingClose)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSettings
@@ -192,9 +195,13 @@
             this.panelSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelSettings.Controls.Add(this.lblExtraApiGen);
-            this.panelSettings.Controls.Add(this.label2);
+            this.panelSettings.Controls.Add(this.lblChangelog);
             this.panelSettings.Controls.Add(this.label1);
+            this.panelSettings.Controls.Add(this.tbxDataset);
+            this.panelSettings.Controls.Add(this.lblSettingsSaved);
+            this.panelSettings.Controls.Add(this.lblExtraApiGen);
+            this.panelSettings.Controls.Add(this.lblGithub);
+            this.panelSettings.Controls.Add(this.lblOfficialDiscord);
             this.panelSettings.Controls.Add(this.checkBox1);
             this.panelSettings.Controls.Add(this.lblStartWindows);
             this.panelSettings.Controls.Add(this.lblSettingsExtra);
@@ -207,8 +214,6 @@
             this.panelSettings.Controls.Add(this.lblKeepTop);
             this.panelSettings.Controls.Add(this.lblCheckingUpdate);
             this.panelSettings.Controls.Add(this.btnCheckUpdate);
-            this.panelSettings.Controls.Add(this.cbxDisplayItems);
-            this.panelSettings.Controls.Add(this.lblDisplayItems);
             this.panelSettings.Controls.Add(this.lblSettingsDisplay);
             this.panelSettings.Controls.Add(this.lblKey);
             this.panelSettings.Controls.Add(this.lblPollRate);
@@ -228,8 +233,91 @@
             this.panelSettings.Controls.Add(this.pbxSettingClose);
             this.panelSettings.Location = new System.Drawing.Point(0, 0);
             this.panelSettings.Name = "panelSettings";
-            this.panelSettings.Size = new System.Drawing.Size(526, 787);
+            this.panelSettings.Size = new System.Drawing.Size(526, 798);
             this.panelSettings.TabIndex = 2;
+            // 
+            // lblSettingsSaved
+            // 
+            this.lblSettingsSaved.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.lblSettingsSaved.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSettingsSaved.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSettingsSaved.ForeColor = System.Drawing.Color.Black;
+            this.lblSettingsSaved.Location = new System.Drawing.Point(177, -43);
+            this.lblSettingsSaved.Name = "lblSettingsSaved";
+            this.lblSettingsSaved.Padding = new System.Windows.Forms.Padding(10);
+            this.lblSettingsSaved.Size = new System.Drawing.Size(182, 38);
+            this.lblSettingsSaved.TabIndex = 67;
+            this.lblSettingsSaved.Text = "Settings Saved";
+            this.lblSettingsSaved.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblExtraApiGen
+            // 
+            this.lblExtraApiGen.AutoSize = true;
+            this.lblExtraApiGen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblExtraApiGen.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExtraApiGen.ForeColor = System.Drawing.Color.SkyBlue;
+            this.lblExtraApiGen.Location = new System.Drawing.Point(12, 583);
+            this.lblExtraApiGen.Name = "lblExtraApiGen";
+            this.lblExtraApiGen.Size = new System.Drawing.Size(92, 17);
+            this.lblExtraApiGen.TabIndex = 66;
+            this.lblExtraApiGen.Text = "API Generator";
+            this.lblExtraApiGen.Click += new System.EventHandler(this.lblExtraApiGen_Click);
+            // 
+            // lblGithub
+            // 
+            this.lblGithub.AutoSize = true;
+            this.lblGithub.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblGithub.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGithub.ForeColor = System.Drawing.Color.SkyBlue;
+            this.lblGithub.Location = new System.Drawing.Point(12, 558);
+            this.lblGithub.Name = "lblGithub";
+            this.lblGithub.Size = new System.Drawing.Size(48, 17);
+            this.lblGithub.TabIndex = 65;
+            this.lblGithub.Text = "Github";
+            this.lblGithub.Click += new System.EventHandler(this.lblGithub_Click);
+            // 
+            // lblOfficialDiscord
+            // 
+            this.lblOfficialDiscord.AutoSize = true;
+            this.lblOfficialDiscord.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblOfficialDiscord.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOfficialDiscord.ForeColor = System.Drawing.Color.SkyBlue;
+            this.lblOfficialDiscord.Location = new System.Drawing.Point(12, 534);
+            this.lblOfficialDiscord.Name = "lblOfficialDiscord";
+            this.lblOfficialDiscord.Size = new System.Drawing.Size(146, 17);
+            this.lblOfficialDiscord.TabIndex = 64;
+            this.lblOfficialDiscord.Text = "Cosmic Official Discord";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(197, 104);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.TabIndex = 63;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // lblStartWindows
+            // 
+            this.lblStartWindows.AutoSize = true;
+            this.lblStartWindows.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStartWindows.ForeColor = System.Drawing.Color.Silver;
+            this.lblStartWindows.Location = new System.Drawing.Point(14, 102);
+            this.lblStartWindows.Name = "lblStartWindows";
+            this.lblStartWindows.Size = new System.Drawing.Size(125, 17);
+            this.lblStartWindows.TabIndex = 62;
+            this.lblStartWindows.Text = "Start With Windows";
+            // 
+            // lblSettingsExtra
+            // 
+            this.lblSettingsExtra.AutoSize = true;
+            this.lblSettingsExtra.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblSettingsExtra.Location = new System.Drawing.Point(14, 509);
+            this.lblSettingsExtra.Name = "lblSettingsExtra";
+            this.lblSettingsExtra.Size = new System.Drawing.Size(44, 17);
+            this.lblSettingsExtra.TabIndex = 61;
+            this.lblSettingsExtra.Text = "Extras";
             // 
             // lblVersion
             // 
@@ -238,10 +326,9 @@
             this.lblVersion.ForeColor = System.Drawing.Color.Silver;
             this.lblVersion.Location = new System.Drawing.Point(3, 1);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(31, 16);
+            this.lblVersion.Size = new System.Drawing.Size(40, 16);
             this.lblVersion.TabIndex = 59;
-            this.lblVersion.Text = "v0.2";
-            this.lblVersion.Visible = false;
+            this.lblVersion.Text = "v0.3.1";
             // 
             // lblUpdates
             // 
@@ -293,7 +380,7 @@
             // cbxKeepTop
             // 
             this.cbxKeepTop.AutoSize = true;
-            this.cbxKeepTop.Location = new System.Drawing.Point(197, 451);
+            this.cbxKeepTop.Location = new System.Drawing.Point(197, 462);
             this.cbxKeepTop.Name = "cbxKeepTop";
             this.cbxKeepTop.Size = new System.Drawing.Size(15, 14);
             this.cbxKeepTop.TabIndex = 26;
@@ -305,7 +392,7 @@
             this.lblKeepTop.AutoSize = true;
             this.lblKeepTop.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblKeepTop.ForeColor = System.Drawing.Color.Silver;
-            this.lblKeepTop.Location = new System.Drawing.Point(14, 449);
+            this.lblKeepTop.Location = new System.Drawing.Point(14, 460);
             this.lblKeepTop.Name = "lblKeepTop";
             this.lblKeepTop.Size = new System.Drawing.Size(83, 17);
             this.lblKeepTop.TabIndex = 25;
@@ -336,34 +423,11 @@
             this.btnCheckUpdate.Text = "Check for Updates";
             this.btnCheckUpdate.UseVisualStyleBackColor = true;
             // 
-            // cbxDisplayItems
-            // 
-            this.cbxDisplayItems.AutoSize = true;
-            this.cbxDisplayItems.Checked = true;
-            this.cbxDisplayItems.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbxDisplayItems.Location = new System.Drawing.Point(197, 424);
-            this.cbxDisplayItems.Name = "cbxDisplayItems";
-            this.cbxDisplayItems.Size = new System.Drawing.Size(15, 14);
-            this.cbxDisplayItems.TabIndex = 22;
-            this.cbxDisplayItems.UseVisualStyleBackColor = true;
-            this.cbxDisplayItems.CheckedChanged += new System.EventHandler(this.cbxDisplayItems_CheckedChanged);
-            // 
-            // lblDisplayItems
-            // 
-            this.lblDisplayItems.AutoSize = true;
-            this.lblDisplayItems.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDisplayItems.ForeColor = System.Drawing.Color.Silver;
-            this.lblDisplayItems.Location = new System.Drawing.Point(14, 422);
-            this.lblDisplayItems.Name = "lblDisplayItems";
-            this.lblDisplayItems.Size = new System.Drawing.Size(85, 17);
-            this.lblDisplayItems.TabIndex = 21;
-            this.lblDisplayItems.Text = "Display Items";
-            // 
             // lblSettingsDisplay
             // 
             this.lblSettingsDisplay.AutoSize = true;
             this.lblSettingsDisplay.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblSettingsDisplay.Location = new System.Drawing.Point(14, 397);
+            this.lblSettingsDisplay.Location = new System.Drawing.Point(14, 434);
             this.lblSettingsDisplay.Name = "lblSettingsDisplay";
             this.lblSettingsDisplay.Size = new System.Drawing.Size(53, 17);
             this.lblSettingsDisplay.TabIndex = 20;
@@ -374,7 +438,7 @@
             this.lblKey.AutoSize = true;
             this.lblKey.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblKey.ForeColor = System.Drawing.Color.Silver;
-            this.lblKey.Location = new System.Drawing.Point(14, 165);
+            this.lblKey.Location = new System.Drawing.Point(14, 170);
             this.lblKey.Name = "lblKey";
             this.lblKey.Size = new System.Drawing.Size(29, 17);
             this.lblKey.TabIndex = 19;
@@ -385,7 +449,7 @@
             this.lblPollRate.AutoSize = true;
             this.lblPollRate.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPollRate.ForeColor = System.Drawing.Color.Silver;
-            this.lblPollRate.Location = new System.Drawing.Point(13, 194);
+            this.lblPollRate.Location = new System.Drawing.Point(13, 226);
             this.lblPollRate.Name = "lblPollRate";
             this.lblPollRate.Size = new System.Drawing.Size(60, 17);
             this.lblPollRate.TabIndex = 18;
@@ -394,10 +458,9 @@
             // lblPrioritize
             // 
             this.lblPrioritize.AutoSize = true;
-            this.lblPrioritize.Enabled = false;
             this.lblPrioritize.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrioritize.ForeColor = System.Drawing.Color.Silver;
-            this.lblPrioritize.Location = new System.Drawing.Point(14, 350);
+            this.lblPrioritize.Location = new System.Drawing.Point(14, 384);
             this.lblPrioritize.Name = "lblPrioritize";
             this.lblPrioritize.Size = new System.Drawing.Size(58, 17);
             this.lblPrioritize.TabIndex = 17;
@@ -407,7 +470,6 @@
             // 
             this.cmbxPrioritize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.cmbxPrioritize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbxPrioritize.Enabled = false;
             this.cmbxPrioritize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbxPrioritize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbxPrioritize.ForeColor = System.Drawing.Color.Silver;
@@ -417,7 +479,7 @@
             "Relics",
             "Prestiging",
             "Everything"});
-            this.cmbxPrioritize.Location = new System.Drawing.Point(197, 346);
+            this.cmbxPrioritize.Location = new System.Drawing.Point(197, 380);
             this.cmbxPrioritize.Name = "cmbxPrioritize";
             this.cmbxPrioritize.Size = new System.Drawing.Size(316, 21);
             this.cmbxPrioritize.TabIndex = 16;
@@ -427,10 +489,9 @@
             this.numInflatorThreshold.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.numInflatorThreshold.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.numInflatorThreshold.DecimalPlaces = 2;
-            this.numInflatorThreshold.Enabled = false;
             this.numInflatorThreshold.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numInflatorThreshold.ForeColor = System.Drawing.Color.Silver;
-            this.numInflatorThreshold.Location = new System.Drawing.Point(197, 318);
+            this.numInflatorThreshold.Location = new System.Drawing.Point(197, 352);
             this.numInflatorThreshold.Minimum = new decimal(new int[] {
             1,
             0,
@@ -448,10 +509,9 @@
             // lblInflatorThreshold
             // 
             this.lblInflatorThreshold.AutoSize = true;
-            this.lblInflatorThreshold.Enabled = false;
             this.lblInflatorThreshold.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInflatorThreshold.ForeColor = System.Drawing.Color.Silver;
-            this.lblInflatorThreshold.Location = new System.Drawing.Point(14, 321);
+            this.lblInflatorThreshold.Location = new System.Drawing.Point(14, 355);
             this.lblInflatorThreshold.Name = "lblInflatorThreshold";
             this.lblInflatorThreshold.Size = new System.Drawing.Size(135, 17);
             this.lblInflatorThreshold.TabIndex = 14;
@@ -462,10 +522,9 @@
             this.numProfitThreshold.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.numProfitThreshold.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.numProfitThreshold.DecimalPlaces = 2;
-            this.numProfitThreshold.Enabled = false;
             this.numProfitThreshold.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numProfitThreshold.ForeColor = System.Drawing.Color.Silver;
-            this.numProfitThreshold.Location = new System.Drawing.Point(197, 289);
+            this.numProfitThreshold.Location = new System.Drawing.Point(197, 323);
             this.numProfitThreshold.Minimum = new decimal(new int[] {
             1,
             0,
@@ -483,10 +542,9 @@
             // lblProfitThreshold
             // 
             this.lblProfitThreshold.AutoSize = true;
-            this.lblProfitThreshold.Enabled = false;
             this.lblProfitThreshold.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProfitThreshold.ForeColor = System.Drawing.Color.Silver;
-            this.lblProfitThreshold.Location = new System.Drawing.Point(14, 292);
+            this.lblProfitThreshold.Location = new System.Drawing.Point(14, 326);
             this.lblProfitThreshold.Name = "lblProfitThreshold";
             this.lblProfitThreshold.Size = new System.Drawing.Size(90, 17);
             this.lblProfitThreshold.TabIndex = 12;
@@ -497,7 +555,7 @@
             this.cbxShowRecommendations.AutoSize = true;
             this.cbxShowRecommendations.Checked = true;
             this.cbxShowRecommendations.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbxShowRecommendations.Location = new System.Drawing.Point(197, 265);
+            this.cbxShowRecommendations.Location = new System.Drawing.Point(197, 299);
             this.cbxShowRecommendations.Name = "cbxShowRecommendations";
             this.cbxShowRecommendations.Size = new System.Drawing.Size(15, 14);
             this.cbxShowRecommendations.TabIndex = 11;
@@ -509,7 +567,7 @@
             this.lblShowRecommendations.AutoSize = true;
             this.lblShowRecommendations.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblShowRecommendations.ForeColor = System.Drawing.Color.Silver;
-            this.lblShowRecommendations.Location = new System.Drawing.Point(14, 263);
+            this.lblShowRecommendations.Location = new System.Drawing.Point(14, 297);
             this.lblShowRecommendations.Name = "lblShowRecommendations";
             this.lblShowRecommendations.Size = new System.Drawing.Size(155, 17);
             this.lblShowRecommendations.TabIndex = 10;
@@ -519,7 +577,7 @@
             // 
             this.lblSettingsRecommendations.AutoSize = true;
             this.lblSettingsRecommendations.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblSettingsRecommendations.Location = new System.Drawing.Point(14, 239);
+            this.lblSettingsRecommendations.Location = new System.Drawing.Point(14, 273);
             this.lblSettingsRecommendations.Name = "lblSettingsRecommendations";
             this.lblSettingsRecommendations.Size = new System.Drawing.Size(131, 17);
             this.lblSettingsRecommendations.TabIndex = 8;
@@ -530,7 +588,7 @@
             this.lblPolling.AutoSize = true;
             this.lblPolling.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPolling.ForeColor = System.Drawing.Color.Silver;
-            this.lblPolling.Location = new System.Drawing.Point(255, 194);
+            this.lblPolling.Location = new System.Drawing.Point(255, 226);
             this.lblPolling.Name = "lblPolling";
             this.lblPolling.Size = new System.Drawing.Size(34, 17);
             this.lblPolling.TabIndex = 6;
@@ -551,16 +609,17 @@
             "45",
             "60",
             "120"});
-            this.cmbxPolling.Location = new System.Drawing.Point(196, 191);
+            this.cmbxPolling.Location = new System.Drawing.Point(196, 223);
             this.cmbxPolling.Name = "cmbxPolling";
             this.cmbxPolling.Size = new System.Drawing.Size(53, 21);
             this.cmbxPolling.TabIndex = 4;
+            this.cmbxPolling.SelectedIndexChanged += new System.EventHandler(this.cmbxPolling_SelectedIndexChanged);
             // 
             // lblSettingsAPI
             // 
             this.lblSettingsAPI.AutoSize = true;
             this.lblSettingsAPI.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblSettingsAPI.Location = new System.Drawing.Point(13, 144);
+            this.lblSettingsAPI.Location = new System.Drawing.Point(13, 149);
             this.lblSettingsAPI.Name = "lblSettingsAPI";
             this.lblSettingsAPI.Size = new System.Drawing.Size(28, 17);
             this.lblSettingsAPI.TabIndex = 2;
@@ -574,11 +633,23 @@
             this.tbxApiKey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbxApiKey.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxApiKey.ForeColor = System.Drawing.Color.Silver;
-            this.tbxApiKey.Location = new System.Drawing.Point(196, 164);
+            this.tbxApiKey.Location = new System.Drawing.Point(196, 169);
             this.tbxApiKey.Name = "tbxApiKey";
             this.tbxApiKey.Size = new System.Drawing.Size(316, 21);
             this.tbxApiKey.TabIndex = 1;
             this.tbxApiKey.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // pbxSettingClose
+            // 
+            this.pbxSettingClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbxSettingClose.Image = global::CookieCosmosWatcher.Properties.Resources.close_white;
+            this.pbxSettingClose.Location = new System.Drawing.Point(506, 3);
+            this.pbxSettingClose.Name = "pbxSettingClose";
+            this.pbxSettingClose.Size = new System.Drawing.Size(16, 16);
+            this.pbxSettingClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxSettingClose.TabIndex = 0;
+            this.pbxSettingClose.TabStop = false;
+            this.pbxSettingClose.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // panelMain
             // 
@@ -676,8 +747,21 @@
             this.panelMain.Controls.Add(this.pbxSettings);
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(526, 787);
+            this.panelMain.Size = new System.Drawing.Size(526, 798);
             this.panelMain.TabIndex = 8;
+            // 
+            // pbxRefresh
+            // 
+            this.pbxRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbxRefresh.Image = global::CookieCosmosWatcher.Properties.Resources.refresh__1_;
+            this.pbxRefresh.Location = new System.Drawing.Point(502, 54);
+            this.pbxRefresh.Margin = new System.Windows.Forms.Padding(4);
+            this.pbxRefresh.Name = "pbxRefresh";
+            this.pbxRefresh.Size = new System.Drawing.Size(20, 20);
+            this.pbxRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxRefresh.TabIndex = 103;
+            this.pbxRefresh.TabStop = false;
+            this.pbxRefresh.Click += new System.EventHandler(this.pbxRefresh_Click);
             // 
             // panelItems
             // 
@@ -688,7 +772,7 @@
             this.panelItems.Controls.Add(this.dataItems);
             this.panelItems.Location = new System.Drawing.Point(13, 591);
             this.panelItems.Name = "panelItems";
-            this.panelItems.Size = new System.Drawing.Size(500, 185);
+            this.panelItems.Size = new System.Drawing.Size(500, 196);
             this.panelItems.TabIndex = 102;
             // 
             // dataItems
@@ -713,7 +797,7 @@
             this.dataItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataItems.ShowEditingIcon = false;
             this.dataItems.ShowRowErrors = false;
-            this.dataItems.Size = new System.Drawing.Size(515, 183);
+            this.dataItems.Size = new System.Drawing.Size(515, 194);
             this.dataItems.StandardTab = true;
             this.dataItems.TabIndex = 43;
             // 
@@ -1076,6 +1160,16 @@
             this.lblCookieHolding.TabIndex = 70;
             this.lblCookieHolding.Text = "0";
             this.lblCookieHolding.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pbxCookie
+            // 
+            this.pbxCookie.Image = global::CookieCosmosWatcher.Properties.Resources.cookie;
+            this.pbxCookie.Location = new System.Drawing.Point(23, 223);
+            this.pbxCookie.Name = "pbxCookie";
+            this.pbxCookie.Size = new System.Drawing.Size(24, 24);
+            this.pbxCookie.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxCookie.TabIndex = 68;
+            this.pbxCookie.TabStop = false;
             // 
             // label46
             // 
@@ -1590,6 +1684,16 @@
             this.lblFirePrice.Text = "0";
             this.lblFirePrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pbxMillionaire
+            // 
+            this.pbxMillionaire.Image = global::CookieCosmosWatcher.Properties.Resources.millionaire;
+            this.pbxMillionaire.Location = new System.Drawing.Point(23, 403);
+            this.pbxMillionaire.Name = "pbxMillionaire";
+            this.pbxMillionaire.Size = new System.Drawing.Size(24, 24);
+            this.pbxMillionaire.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxMillionaire.TabIndex = 12;
+            this.pbxMillionaire.TabStop = false;
+            // 
             // lblSlimePrice
             // 
             this.lblSlimePrice.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1600,100 +1704,6 @@
             this.lblSlimePrice.TabIndex = 11;
             this.lblSlimePrice.Text = "0";
             this.lblSlimePrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblPaid
-            // 
-            this.lblPaid.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPaid.ForeColor = System.Drawing.Color.Silver;
-            this.lblPaid.Location = new System.Drawing.Point(196, 197);
-            this.lblPaid.Name = "lblPaid";
-            this.lblPaid.Size = new System.Drawing.Size(57, 22);
-            this.lblPaid.TabIndex = 6;
-            this.lblPaid.Text = "Paid";
-            this.lblPaid.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblHolding
-            // 
-            this.lblHolding.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHolding.ForeColor = System.Drawing.Color.Silver;
-            this.lblHolding.Location = new System.Drawing.Point(133, 197);
-            this.lblHolding.Name = "lblHolding";
-            this.lblHolding.Size = new System.Drawing.Size(57, 22);
-            this.lblHolding.TabIndex = 5;
-            this.lblHolding.Text = "Holding";
-            this.lblHolding.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblPrice
-            // 
-            this.lblPrice.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.ForeColor = System.Drawing.Color.Silver;
-            this.lblPrice.Location = new System.Drawing.Point(70, 197);
-            this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(57, 22);
-            this.lblPrice.TabIndex = 4;
-            this.lblPrice.Text = "Price";
-            this.lblPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblHelp
-            // 
-            this.lblHelp.AutoSize = true;
-            this.lblHelp.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblHelp.Location = new System.Drawing.Point(777, 32);
-            this.lblHelp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblHelp.Name = "lblHelp";
-            this.lblHelp.Size = new System.Drawing.Size(263, 136);
-            this.lblHelp.TabIndex = 2;
-            this.lblHelp.Text = resources.GetString("lblHelp.Text");
-            // 
-            // timer
-            // 
-            this.timer.Interval = 1000;
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
-            // toolTip
-            // 
-            this.toolTip.AutomaticDelay = 0;
-            this.toolTip.AutoPopDelay = 15000;
-            this.toolTip.BackColor = System.Drawing.Color.White;
-            this.toolTip.ForeColor = System.Drawing.Color.White;
-            this.toolTip.InitialDelay = 0;
-            this.toolTip.OwnerDraw = true;
-            this.toolTip.ReshowDelay = 0;
-            this.toolTip.ShowAlways = true;
-            this.toolTip.Draw += new System.Windows.Forms.DrawToolTipEventHandler(this.toolTip_Draw);
-            // 
-            // pbxRefresh
-            // 
-            this.pbxRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbxRefresh.Image = global::CookieCosmosWatcher.Properties.Resources.refresh__1_;
-            this.pbxRefresh.Location = new System.Drawing.Point(502, 54);
-            this.pbxRefresh.Margin = new System.Windows.Forms.Padding(4);
-            this.pbxRefresh.Name = "pbxRefresh";
-            this.pbxRefresh.Size = new System.Drawing.Size(20, 20);
-            this.pbxRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxRefresh.TabIndex = 103;
-            this.pbxRefresh.TabStop = false;
-            this.pbxRefresh.Click += new System.EventHandler(this.pbxRefresh_Click);
-            // 
-            // pbxCookie
-            // 
-            this.pbxCookie.Image = global::CookieCosmosWatcher.Properties.Resources.cookie;
-            this.pbxCookie.Location = new System.Drawing.Point(23, 223);
-            this.pbxCookie.Name = "pbxCookie";
-            this.pbxCookie.Size = new System.Drawing.Size(24, 24);
-            this.pbxCookie.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxCookie.TabIndex = 68;
-            this.pbxCookie.TabStop = false;
-            // 
-            // pbxMillionaire
-            // 
-            this.pbxMillionaire.Image = global::CookieCosmosWatcher.Properties.Resources.millionaire;
-            this.pbxMillionaire.Location = new System.Drawing.Point(23, 403);
-            this.pbxMillionaire.Name = "pbxMillionaire";
-            this.pbxMillionaire.Size = new System.Drawing.Size(24, 24);
-            this.pbxMillionaire.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxMillionaire.TabIndex = 12;
-            this.pbxMillionaire.TabStop = false;
             // 
             // pbxNitro
             // 
@@ -1735,6 +1745,39 @@
             this.pbxFire.TabIndex = 7;
             this.pbxFire.TabStop = false;
             // 
+            // lblPaid
+            // 
+            this.lblPaid.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPaid.ForeColor = System.Drawing.Color.Silver;
+            this.lblPaid.Location = new System.Drawing.Point(196, 197);
+            this.lblPaid.Name = "lblPaid";
+            this.lblPaid.Size = new System.Drawing.Size(57, 22);
+            this.lblPaid.TabIndex = 6;
+            this.lblPaid.Text = "Paid";
+            this.lblPaid.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblHolding
+            // 
+            this.lblHolding.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHolding.ForeColor = System.Drawing.Color.Silver;
+            this.lblHolding.Location = new System.Drawing.Point(133, 197);
+            this.lblHolding.Name = "lblHolding";
+            this.lblHolding.Size = new System.Drawing.Size(57, 22);
+            this.lblHolding.TabIndex = 5;
+            this.lblHolding.Text = "Holding";
+            this.lblHolding.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPrice
+            // 
+            this.lblPrice.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrice.ForeColor = System.Drawing.Color.Silver;
+            this.lblPrice.Location = new System.Drawing.Point(70, 197);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(57, 22);
+            this.lblPrice.TabIndex = 4;
+            this.lblPrice.Text = "Price";
+            this.lblPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // pbxSlime
             // 
             this.pbxSlime.Image = global::CookieCosmosWatcher.Properties.Resources.slime;
@@ -1758,94 +1801,87 @@
             this.pbxSettings.TabStop = false;
             this.pbxSettings.Click += new System.EventHandler(this.pbxSettings_Click);
             // 
-            // pbxSettingClose
+            // lblHelp
             // 
-            this.pbxSettingClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbxSettingClose.Image = global::CookieCosmosWatcher.Properties.Resources.close_white;
-            this.pbxSettingClose.Location = new System.Drawing.Point(506, 3);
-            this.pbxSettingClose.Name = "pbxSettingClose";
-            this.pbxSettingClose.Size = new System.Drawing.Size(16, 16);
-            this.pbxSettingClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxSettingClose.TabIndex = 0;
-            this.pbxSettingClose.TabStop = false;
-            this.pbxSettingClose.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.lblHelp.AutoSize = true;
+            this.lblHelp.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblHelp.Location = new System.Drawing.Point(777, 32);
+            this.lblHelp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHelp.Name = "lblHelp";
+            this.lblHelp.Size = new System.Drawing.Size(263, 136);
+            this.lblHelp.TabIndex = 2;
+            this.lblHelp.Text = resources.GetString("lblHelp.Text");
             // 
-            // lblSettingsExtra
+            // timer
             // 
-            this.lblSettingsExtra.AutoSize = true;
-            this.lblSettingsExtra.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblSettingsExtra.Location = new System.Drawing.Point(16, 495);
-            this.lblSettingsExtra.Name = "lblSettingsExtra";
-            this.lblSettingsExtra.Size = new System.Drawing.Size(39, 17);
-            this.lblSettingsExtra.TabIndex = 61;
-            this.lblSettingsExtra.Text = "Extra";
+            this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // checkBox1
+            // toolTip
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(197, 105);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 63;
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.toolTip.AutomaticDelay = 0;
+            this.toolTip.AutoPopDelay = 15000;
+            this.toolTip.BackColor = System.Drawing.Color.White;
+            this.toolTip.ForeColor = System.Drawing.Color.White;
+            this.toolTip.InitialDelay = 0;
+            this.toolTip.OwnerDraw = true;
+            this.toolTip.ReshowDelay = 0;
+            this.toolTip.ShowAlways = true;
+            this.toolTip.Draw += new System.Windows.Forms.DrawToolTipEventHandler(this.toolTip_Draw);
             // 
-            // lblStartWindows
+            // timerSettingsSaved
             // 
-            this.lblStartWindows.AutoSize = true;
-            this.lblStartWindows.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStartWindows.ForeColor = System.Drawing.Color.Silver;
-            this.lblStartWindows.Location = new System.Drawing.Point(14, 103);
-            this.lblStartWindows.Name = "lblStartWindows";
-            this.lblStartWindows.Size = new System.Drawing.Size(125, 17);
-            this.lblStartWindows.TabIndex = 62;
-            this.lblStartWindows.Text = "Start With Windows";
+            this.timerSettingsSaved.Interval = 1;
+            this.timerSettingsSaved.Tick += new System.EventHandler(this.timerSettingsSaved_Tick);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.SkyBlue;
-            this.label1.Location = new System.Drawing.Point(20, 520);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Silver;
+            this.label1.Location = new System.Drawing.Point(14, 197);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 17);
-            this.label1.TabIndex = 64;
-            this.label1.Text = "Cosmic Official Discord";
+            this.label1.Size = new System.Drawing.Size(61, 17);
+            this.label1.TabIndex = 69;
+            this.label1.Text = "Datasets";
             // 
-            // label2
+            // tbxDataset
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.SkyBlue;
-            this.label2.Location = new System.Drawing.Point(20, 544);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 17);
-            this.label2.TabIndex = 65;
-            this.label2.Text = "Github";
+            this.tbxDataset.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbxDataset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.tbxDataset.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbxDataset.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxDataset.ForeColor = System.Drawing.Color.Silver;
+            this.tbxDataset.Location = new System.Drawing.Point(196, 196);
+            this.tbxDataset.Name = "tbxDataset";
+            this.tbxDataset.Size = new System.Drawing.Size(316, 21);
+            this.tbxDataset.TabIndex = 68;
             // 
-            // lblExtraApiGen
+            // lblChangelog
             // 
-            this.lblExtraApiGen.AutoSize = true;
-            this.lblExtraApiGen.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExtraApiGen.ForeColor = System.Drawing.Color.SkyBlue;
-            this.lblExtraApiGen.Location = new System.Drawing.Point(20, 569);
-            this.lblExtraApiGen.Name = "lblExtraApiGen";
-            this.lblExtraApiGen.Size = new System.Drawing.Size(92, 17);
-            this.lblExtraApiGen.TabIndex = 66;
-            this.lblExtraApiGen.Text = "API Generator";
-            this.lblExtraApiGen.Click += new System.EventHandler(this.lblExtraApiGen_Click);
+            this.lblChangelog.AutoSize = true;
+            this.lblChangelog.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblChangelog.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChangelog.ForeColor = System.Drawing.Color.SkyBlue;
+            this.lblChangelog.Location = new System.Drawing.Point(13, 607);
+            this.lblChangelog.Name = "lblChangelog";
+            this.lblChangelog.Size = new System.Drawing.Size(74, 17);
+            this.lblChangelog.TabIndex = 70;
+            this.lblChangelog.Text = "Changelog";
             // 
             // CookieCosmos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.ClientSize = new System.Drawing.Size(526, 787);
+            this.ClientSize = new System.Drawing.Size(526, 798);
             this.Controls.Add(this.panelSettings);
             this.Controls.Add(this.panelMain);
             this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(542, 605);
+            this.MinimumSize = new System.Drawing.Size(542, 837);
             this.Name = "CookieCosmos";
             this.Text = "Cookie Cosmos Watcher";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -1853,18 +1889,19 @@
             this.panelSettings.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numInflatorThreshold)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numProfitThreshold)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxSettingClose)).EndInit();
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxRefresh)).EndInit();
             this.panelItems.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataItems)).EndInit();
             this.PanelRecommendations.ResumeLayout(false);
             this.PanelRecommendations.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxCookie)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxRefresh)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxCookie)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxMillionaire)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxNitro)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDragon)).EndInit();
@@ -1872,7 +1909,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbxFire)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxSlime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxSettings)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxSettingClose)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1982,8 +2018,6 @@
         private System.Windows.Forms.Panel PanelRecommendations;
         private System.Windows.Forms.ListBox lbxRecommendations;
         private System.Windows.Forms.Label lblRecommendations;
-        private System.Windows.Forms.CheckBox cbxDisplayItems;
-        private System.Windows.Forms.Label lblDisplayItems;
         private System.Windows.Forms.Label lblSettingsDisplay;
         private System.Windows.Forms.Label lblKey;
         private System.Windows.Forms.Label lblPollRate;
@@ -2008,11 +2042,16 @@
         private System.Windows.Forms.PictureBox pbxRefresh;
         private System.Windows.Forms.Label lblVersion;
         private System.Windows.Forms.Label lblExtraApiGen;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblGithub;
+        private System.Windows.Forms.Label lblOfficialDiscord;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label lblStartWindows;
         private System.Windows.Forms.Label lblSettingsExtra;
+        private System.Windows.Forms.Label lblSettingsSaved;
+        private System.Windows.Forms.Timer timerSettingsSaved;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbxDataset;
+        private System.Windows.Forms.Label lblChangelog;
     }
 }
 
