@@ -22,8 +22,7 @@ namespace CookieCosmosWatcher
         private int counter = 0;
         private int counter_max = 3600;
 
-        private RootPlayer current_player;
-        private RootCookie current_cookie;
+        private RootData current_data;
 
         private bool api_key_changed;
         private DateTime last_check;
@@ -65,6 +64,7 @@ namespace CookieCosmosWatcher
         {
             panelSettings.Visible = false;
             panelSettings.SendToBack();
+            Properties.Settings.Default.Save();
 
             FormCheck();
         }
@@ -180,10 +180,10 @@ namespace CookieCosmosWatcher
                 }
             }
 
-            if (current_player != null)
+            if (current_data != null)
             {
                 TimeSpan ts = new TimeSpan(0, 0, 0, counter_max - counter);
-                toolTip.SetToolTip(pbxRefresh, $"Usage: {current_player.usage}\nLast Called: {current_player.called}\nNext Update: {ts.Hours}h {ts.Minutes}m {ts.Seconds}s");
+                toolTip.SetToolTip(pbxRefresh, $"Usage: {current_data.usage}\nLast Called: {current_data.called}\nNext Update: {ts.Hours}h {ts.Minutes}m {ts.Seconds}s");
             }
 
             // checks if a refresh is needed
@@ -196,43 +196,33 @@ namespace CookieCosmosWatcher
 
         private void LoadData()
         {
-            string url_player = $"https://api.cookiecosmosbot.com/v1.1/player/?t={tbxApiKey.Text}";
-            string url_cookie = $"https://api.cookiecosmosbot.com/v1.1/cookie/?t={tbxApiKey.Text}";
+            string url_data = $"https://api.cookiecosmosbot.com/v1.2_dev/data/?t={tbxApiKey.Text}&f=543";
 
-            var data_player = "";
-            var data_cookie = "";
+            var data = "";
 
             using (WebClient client = new WebClient())
             {
                 client.Headers.Add("user-agent", ".NET Cookie-Cosmos-Watcher-0.1");
-                data_player = client.DownloadString(url_player);
-                client.Headers.Add("user-agent", ".NET Cookie-Cosmos-Watcher-0.1");
-                data_cookie = client.DownloadString(url_cookie);
+                data = client.DownloadString(url_data);
             }
 
             // Grab the api response and deserialize it
-            if (data_player != "")
+            if (data != "")
             {
-                RootPlayer new_player = JsonConvert.DeserializeObject<RootPlayer>(data_player);
-                current_player = new_player;
-            }
-
-            if (data_cookie != "")
-            {
-                RootCookie new_cookie = JsonConvert.DeserializeObject<RootCookie>(data_cookie);
-                current_cookie = new_cookie;
+                RootData json_data = JsonConvert.DeserializeObject<RootData>(data);
+                current_data = json_data;
             }
 
             last_check = DateTime.Now;
 
-            if (current_player.result == "Success")
+            if (current_data.result == "Success")
             {
                 // server list
                 if (need_to_populate_servers)
                 {
                     cmbxServerSelect.Items.Clear();
 
-                    foreach (Server s in current_player.servers)
+                    foreach (Player s in current_data.player)
                     {
                         cmbxServerSelect.Items.Add(s.guild_name);
                         if (current_server != "")
@@ -257,7 +247,7 @@ namespace CookieCosmosWatcher
             }
             else
             {
-                lblServer.Text = current_player.result + " - " + current_player.response;
+                lblServer.Text = current_data.result + " - " + current_data.response;
                 lblServer.ForeColor = bad_colour;
             }
         }
@@ -286,7 +276,7 @@ namespace CookieCosmosWatcher
                     kvp.Value.paid.Text = "0";
             }
 
-            foreach (JsonData.Cookie c in current_cookie.cookies.Where(x => x.name != "Millionaire Cookie"))
+            foreach (EconomyCookie c in current_data.cookies.Where(x => x.name != "Millionaire Cookie"))
             {
                 Cookie_Controls ccc = cookie_controls[c.name];
                 ccc.price.Text = c.price.ToString();
@@ -295,7 +285,7 @@ namespace CookieCosmosWatcher
             lblServer.Text = current_server;
             lblServer.ForeColor = Color.White;
             
-            Server server_stuff = current_player.servers.Find(x => x.guild_name == current_server);
+            Player server_stuff = current_data.player.Find(x => x.guild_name == current_server);
             double fee_reduction = Math.Round(server_stuff.prestige * 0.05,2);
             long current_cookie_market_value = 0;
             long current_cookie_value = 0;
@@ -344,7 +334,7 @@ namespace CookieCosmosWatcher
                     if (pc.amount > 0 && ccpc.net != null)
                     {
                         double bought_for = Math.Round((double)pc.amount * pc.price, 0);
-                        double sell_for_raw = Math.Round((double)pc.amount * current_cookie.cookies.Find(x => x.name == pc.name).price, 0);
+                        double sell_for_raw = Math.Round((double)pc.amount * current_data.cookies.Find(x => x.name == pc.name).price, 0);
                         double sell_for_sale_fee = Math.Floor(sell_for_raw * (0.9 + (fee_reduction / 10)));
                         double sell_for_net = sell_for_sale_fee - bought_for;
                         ccpc.sell.Text = sell_for_sale_fee.ToString();
@@ -443,7 +433,7 @@ namespace CookieCosmosWatcher
 
         private void lblExtraApiGen_Click(object sender, EventArgs e)
         {
-            API_Generator apgen = new API_Generator(tbxDataset, tbxApiKey.Text);
+            API_Generator apgen = new API_Generator(tbxApiKey.Text);
             apgen.Show();
         }
 

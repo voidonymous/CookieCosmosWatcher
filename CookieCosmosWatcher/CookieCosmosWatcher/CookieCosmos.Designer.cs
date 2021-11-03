@@ -31,14 +31,20 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CookieCosmos));
             this.panelSettings = new System.Windows.Forms.Panel();
-            this.lblChangelog = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbxDataset = new System.Windows.Forms.TextBox();
+            this.cbxFocus = new System.Windows.Forms.CheckBox();
+            this.cbxAudible = new System.Windows.Forms.CheckBox();
+            this.cbxFlashTaskbar = new System.Windows.Forms.CheckBox();
+            this.lblFocus = new System.Windows.Forms.Label();
+            this.lblAudible = new System.Windows.Forms.Label();
+            this.lblFlashTaskbar = new System.Windows.Forms.Label();
+            this.cbxEnableNotifications = new System.Windows.Forms.CheckBox();
+            this.lblEnableNotifications = new System.Windows.Forms.Label();
+            this.lblSettingsNotifications = new System.Windows.Forms.Label();
             this.lblSettingsSaved = new System.Windows.Forms.Label();
             this.lblExtraApiGen = new System.Windows.Forms.Label();
             this.lblGithub = new System.Windows.Forms.Label();
             this.lblOfficialDiscord = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cbxStartWindows = new System.Windows.Forms.CheckBox();
             this.lblStartWindows = new System.Windows.Forms.Label();
             this.lblSettingsExtra = new System.Windows.Forms.Label();
             this.lblVersion = new System.Windows.Forms.Label();
@@ -70,6 +76,7 @@
             this.panelMain = new System.Windows.Forms.Panel();
             this.pbxRefresh = new System.Windows.Forms.PictureBox();
             this.panelItems = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
             this.dataItems = new System.Windows.Forms.DataGridView();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -167,16 +174,6 @@
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.timerSettingsSaved = new System.Windows.Forms.Timer(this.components);
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.panelSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numInflatorThreshold)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numProfitThreshold)).BeginInit();
@@ -205,23 +202,20 @@
             this.panelSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelSettings.Controls.Add(this.checkBox5);
-            this.panelSettings.Controls.Add(this.checkBox4);
-            this.panelSettings.Controls.Add(this.checkBox3);
-            this.panelSettings.Controls.Add(this.label2);
-            this.panelSettings.Controls.Add(this.label3);
-            this.panelSettings.Controls.Add(this.label4);
-            this.panelSettings.Controls.Add(this.checkBox2);
-            this.panelSettings.Controls.Add(this.label5);
-            this.panelSettings.Controls.Add(this.label6);
-            this.panelSettings.Controls.Add(this.lblChangelog);
-            this.panelSettings.Controls.Add(this.label1);
-            this.panelSettings.Controls.Add(this.tbxDataset);
+            this.panelSettings.Controls.Add(this.cbxFocus);
+            this.panelSettings.Controls.Add(this.cbxAudible);
+            this.panelSettings.Controls.Add(this.cbxFlashTaskbar);
+            this.panelSettings.Controls.Add(this.lblFocus);
+            this.panelSettings.Controls.Add(this.lblAudible);
+            this.panelSettings.Controls.Add(this.lblFlashTaskbar);
+            this.panelSettings.Controls.Add(this.cbxEnableNotifications);
+            this.panelSettings.Controls.Add(this.lblEnableNotifications);
+            this.panelSettings.Controls.Add(this.lblSettingsNotifications);
             this.panelSettings.Controls.Add(this.lblSettingsSaved);
             this.panelSettings.Controls.Add(this.lblExtraApiGen);
             this.panelSettings.Controls.Add(this.lblGithub);
             this.panelSettings.Controls.Add(this.lblOfficialDiscord);
-            this.panelSettings.Controls.Add(this.checkBox1);
+            this.panelSettings.Controls.Add(this.cbxStartWindows);
             this.panelSettings.Controls.Add(this.lblStartWindows);
             this.panelSettings.Controls.Add(this.lblSettingsExtra);
             this.panelSettings.Controls.Add(this.lblVersion);
@@ -255,41 +249,95 @@
             this.panelSettings.Size = new System.Drawing.Size(526, 798);
             this.panelSettings.TabIndex = 2;
             // 
-            // lblChangelog
+            // cbxFocus
             // 
-            this.lblChangelog.AutoSize = true;
-            this.lblChangelog.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblChangelog.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChangelog.ForeColor = System.Drawing.Color.SkyBlue;
-            this.lblChangelog.Location = new System.Drawing.Point(208, 717);
-            this.lblChangelog.Name = "lblChangelog";
-            this.lblChangelog.Size = new System.Drawing.Size(74, 17);
-            this.lblChangelog.TabIndex = 70;
-            this.lblChangelog.Text = "Changelog";
+            this.cbxFocus.AutoSize = true;
+            this.cbxFocus.Location = new System.Drawing.Point(197, 514);
+            this.cbxFocus.Name = "cbxFocus";
+            this.cbxFocus.Size = new System.Drawing.Size(15, 14);
+            this.cbxFocus.TabIndex = 82;
+            this.cbxFocus.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // cbxAudible
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Silver;
-            this.label1.Location = new System.Drawing.Point(14, 197);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 17);
-            this.label1.TabIndex = 69;
-            this.label1.Text = "Datasets";
+            this.cbxAudible.AutoSize = true;
+            this.cbxAudible.Location = new System.Drawing.Point(197, 485);
+            this.cbxAudible.Name = "cbxAudible";
+            this.cbxAudible.Size = new System.Drawing.Size(15, 14);
+            this.cbxAudible.TabIndex = 81;
+            this.cbxAudible.UseVisualStyleBackColor = true;
             // 
-            // tbxDataset
+            // cbxFlashTaskbar
             // 
-            this.tbxDataset.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbxDataset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.tbxDataset.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbxDataset.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxDataset.ForeColor = System.Drawing.Color.Silver;
-            this.tbxDataset.Location = new System.Drawing.Point(196, 196);
-            this.tbxDataset.Name = "tbxDataset";
-            this.tbxDataset.Size = new System.Drawing.Size(316, 21);
-            this.tbxDataset.TabIndex = 68;
+            this.cbxFlashTaskbar.AutoSize = true;
+            this.cbxFlashTaskbar.Location = new System.Drawing.Point(198, 456);
+            this.cbxFlashTaskbar.Name = "cbxFlashTaskbar";
+            this.cbxFlashTaskbar.Size = new System.Drawing.Size(15, 14);
+            this.cbxFlashTaskbar.TabIndex = 80;
+            this.cbxFlashTaskbar.UseVisualStyleBackColor = true;
+            // 
+            // lblFocus
+            // 
+            this.lblFocus.AutoSize = true;
+            this.lblFocus.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFocus.ForeColor = System.Drawing.Color.Silver;
+            this.lblFocus.Location = new System.Drawing.Point(15, 511);
+            this.lblFocus.Name = "lblFocus";
+            this.lblFocus.Size = new System.Drawing.Size(115, 17);
+            this.lblFocus.TabIndex = 79;
+            this.lblFocus.Text = "Focus Application";
+            // 
+            // lblAudible
+            // 
+            this.lblAudible.AutoSize = true;
+            this.lblAudible.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAudible.ForeColor = System.Drawing.Color.Silver;
+            this.lblAudible.Location = new System.Drawing.Point(15, 482);
+            this.lblAudible.Name = "lblAudible";
+            this.lblAudible.Size = new System.Drawing.Size(85, 17);
+            this.lblAudible.TabIndex = 76;
+            this.lblAudible.Text = "Audible Tone";
+            // 
+            // lblFlashTaskbar
+            // 
+            this.lblFlashTaskbar.AutoSize = true;
+            this.lblFlashTaskbar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFlashTaskbar.ForeColor = System.Drawing.Color.Silver;
+            this.lblFlashTaskbar.Location = new System.Drawing.Point(15, 453);
+            this.lblFlashTaskbar.Name = "lblFlashTaskbar";
+            this.lblFlashTaskbar.Size = new System.Drawing.Size(84, 17);
+            this.lblFlashTaskbar.TabIndex = 74;
+            this.lblFlashTaskbar.Text = "Flash Taskbar";
+            // 
+            // cbxEnableNotifications
+            // 
+            this.cbxEnableNotifications.AutoSize = true;
+            this.cbxEnableNotifications.Location = new System.Drawing.Point(198, 426);
+            this.cbxEnableNotifications.Name = "cbxEnableNotifications";
+            this.cbxEnableNotifications.Size = new System.Drawing.Size(15, 14);
+            this.cbxEnableNotifications.TabIndex = 73;
+            this.cbxEnableNotifications.UseVisualStyleBackColor = true;
+            // 
+            // lblEnableNotifications
+            // 
+            this.lblEnableNotifications.AutoSize = true;
+            this.lblEnableNotifications.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEnableNotifications.ForeColor = System.Drawing.Color.Silver;
+            this.lblEnableNotifications.Location = new System.Drawing.Point(15, 424);
+            this.lblEnableNotifications.Name = "lblEnableNotifications";
+            this.lblEnableNotifications.Size = new System.Drawing.Size(127, 17);
+            this.lblEnableNotifications.TabIndex = 72;
+            this.lblEnableNotifications.Text = "Enable Notifications";
+            // 
+            // lblSettingsNotifications
+            // 
+            this.lblSettingsNotifications.AutoSize = true;
+            this.lblSettingsNotifications.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblSettingsNotifications.Location = new System.Drawing.Point(15, 400);
+            this.lblSettingsNotifications.Name = "lblSettingsNotifications";
+            this.lblSettingsNotifications.Size = new System.Drawing.Size(89, 17);
+            this.lblSettingsNotifications.TabIndex = 71;
+            this.lblSettingsNotifications.Text = "Notifications";
             // 
             // lblSettingsSaved
             // 
@@ -311,7 +359,7 @@
             this.lblExtraApiGen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblExtraApiGen.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblExtraApiGen.ForeColor = System.Drawing.Color.SkyBlue;
-            this.lblExtraApiGen.Location = new System.Drawing.Point(207, 693);
+            this.lblExtraApiGen.Location = new System.Drawing.Point(208, 663);
             this.lblExtraApiGen.Name = "lblExtraApiGen";
             this.lblExtraApiGen.Size = new System.Drawing.Size(92, 17);
             this.lblExtraApiGen.TabIndex = 66;
@@ -324,7 +372,7 @@
             this.lblGithub.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblGithub.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGithub.ForeColor = System.Drawing.Color.SkyBlue;
-            this.lblGithub.Location = new System.Drawing.Point(11, 717);
+            this.lblGithub.Location = new System.Drawing.Point(12, 687);
             this.lblGithub.Name = "lblGithub";
             this.lblGithub.Size = new System.Drawing.Size(48, 17);
             this.lblGithub.TabIndex = 65;
@@ -337,21 +385,21 @@
             this.lblOfficialDiscord.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblOfficialDiscord.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOfficialDiscord.ForeColor = System.Drawing.Color.SkyBlue;
-            this.lblOfficialDiscord.Location = new System.Drawing.Point(11, 693);
+            this.lblOfficialDiscord.Location = new System.Drawing.Point(12, 663);
             this.lblOfficialDiscord.Name = "lblOfficialDiscord";
             this.lblOfficialDiscord.Size = new System.Drawing.Size(146, 17);
             this.lblOfficialDiscord.TabIndex = 64;
             this.lblOfficialDiscord.Text = "Cosmic Official Discord";
             // 
-            // checkBox1
+            // cbxStartWindows
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(197, 104);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 63;
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.cbxStartWindows.AutoSize = true;
+            this.cbxStartWindows.Location = new System.Drawing.Point(197, 104);
+            this.cbxStartWindows.Name = "cbxStartWindows";
+            this.cbxStartWindows.Size = new System.Drawing.Size(15, 14);
+            this.cbxStartWindows.TabIndex = 63;
+            this.cbxStartWindows.UseVisualStyleBackColor = true;
+            this.cbxStartWindows.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // lblStartWindows
             // 
@@ -368,7 +416,7 @@
             // 
             this.lblSettingsExtra.AutoSize = true;
             this.lblSettingsExtra.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblSettingsExtra.Location = new System.Drawing.Point(13, 668);
+            this.lblSettingsExtra.Location = new System.Drawing.Point(14, 638);
             this.lblSettingsExtra.Name = "lblSettingsExtra";
             this.lblSettingsExtra.Size = new System.Drawing.Size(44, 17);
             this.lblSettingsExtra.TabIndex = 61;
@@ -384,6 +432,7 @@
             this.lblVersion.Size = new System.Drawing.Size(40, 16);
             this.lblVersion.TabIndex = 59;
             this.lblVersion.Text = "v0.3.1";
+            this.toolTip.SetToolTip(this.lblVersion, "- Added notification UI");
             // 
             // lblUpdates
             // 
@@ -435,7 +484,7 @@
             // cbxKeepTop
             // 
             this.cbxKeepTop.AutoSize = true;
-            this.cbxKeepTop.Location = new System.Drawing.Point(196, 621);
+            this.cbxKeepTop.Location = new System.Drawing.Point(197, 591);
             this.cbxKeepTop.Name = "cbxKeepTop";
             this.cbxKeepTop.Size = new System.Drawing.Size(15, 14);
             this.cbxKeepTop.TabIndex = 26;
@@ -447,7 +496,7 @@
             this.lblKeepTop.AutoSize = true;
             this.lblKeepTop.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblKeepTop.ForeColor = System.Drawing.Color.Silver;
-            this.lblKeepTop.Location = new System.Drawing.Point(13, 619);
+            this.lblKeepTop.Location = new System.Drawing.Point(14, 589);
             this.lblKeepTop.Name = "lblKeepTop";
             this.lblKeepTop.Size = new System.Drawing.Size(83, 17);
             this.lblKeepTop.TabIndex = 25;
@@ -482,7 +531,7 @@
             // 
             this.lblSettingsDisplay.AutoSize = true;
             this.lblSettingsDisplay.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblSettingsDisplay.Location = new System.Drawing.Point(13, 593);
+            this.lblSettingsDisplay.Location = new System.Drawing.Point(14, 563);
             this.lblSettingsDisplay.Name = "lblSettingsDisplay";
             this.lblSettingsDisplay.Size = new System.Drawing.Size(53, 17);
             this.lblSettingsDisplay.TabIndex = 20;
@@ -504,7 +553,7 @@
             this.lblPollRate.AutoSize = true;
             this.lblPollRate.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPollRate.ForeColor = System.Drawing.Color.Silver;
-            this.lblPollRate.Location = new System.Drawing.Point(13, 226);
+            this.lblPollRate.Location = new System.Drawing.Point(14, 196);
             this.lblPollRate.Name = "lblPollRate";
             this.lblPollRate.Size = new System.Drawing.Size(60, 17);
             this.lblPollRate.TabIndex = 18;
@@ -515,7 +564,7 @@
             this.lblPrioritize.AutoSize = true;
             this.lblPrioritize.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrioritize.ForeColor = System.Drawing.Color.Silver;
-            this.lblPrioritize.Location = new System.Drawing.Point(14, 384);
+            this.lblPrioritize.Location = new System.Drawing.Point(15, 354);
             this.lblPrioritize.Name = "lblPrioritize";
             this.lblPrioritize.Size = new System.Drawing.Size(58, 17);
             this.lblPrioritize.TabIndex = 17;
@@ -534,7 +583,7 @@
             "Relics",
             "Prestiging",
             "Everything"});
-            this.cmbxPrioritize.Location = new System.Drawing.Point(197, 380);
+            this.cmbxPrioritize.Location = new System.Drawing.Point(198, 350);
             this.cmbxPrioritize.Name = "cmbxPrioritize";
             this.cmbxPrioritize.Size = new System.Drawing.Size(316, 21);
             this.cmbxPrioritize.TabIndex = 16;
@@ -546,7 +595,7 @@
             this.numInflatorThreshold.DecimalPlaces = 2;
             this.numInflatorThreshold.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numInflatorThreshold.ForeColor = System.Drawing.Color.Silver;
-            this.numInflatorThreshold.Location = new System.Drawing.Point(197, 352);
+            this.numInflatorThreshold.Location = new System.Drawing.Point(198, 322);
             this.numInflatorThreshold.Minimum = new decimal(new int[] {
             1,
             0,
@@ -566,7 +615,7 @@
             this.lblInflatorThreshold.AutoSize = true;
             this.lblInflatorThreshold.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInflatorThreshold.ForeColor = System.Drawing.Color.Silver;
-            this.lblInflatorThreshold.Location = new System.Drawing.Point(14, 355);
+            this.lblInflatorThreshold.Location = new System.Drawing.Point(15, 325);
             this.lblInflatorThreshold.Name = "lblInflatorThreshold";
             this.lblInflatorThreshold.Size = new System.Drawing.Size(135, 17);
             this.lblInflatorThreshold.TabIndex = 14;
@@ -579,7 +628,7 @@
             this.numProfitThreshold.DecimalPlaces = 2;
             this.numProfitThreshold.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numProfitThreshold.ForeColor = System.Drawing.Color.Silver;
-            this.numProfitThreshold.Location = new System.Drawing.Point(197, 323);
+            this.numProfitThreshold.Location = new System.Drawing.Point(198, 293);
             this.numProfitThreshold.Minimum = new decimal(new int[] {
             1,
             0,
@@ -599,7 +648,7 @@
             this.lblProfitThreshold.AutoSize = true;
             this.lblProfitThreshold.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProfitThreshold.ForeColor = System.Drawing.Color.Silver;
-            this.lblProfitThreshold.Location = new System.Drawing.Point(14, 326);
+            this.lblProfitThreshold.Location = new System.Drawing.Point(15, 296);
             this.lblProfitThreshold.Name = "lblProfitThreshold";
             this.lblProfitThreshold.Size = new System.Drawing.Size(90, 17);
             this.lblProfitThreshold.TabIndex = 12;
@@ -610,7 +659,7 @@
             this.cbxShowRecommendations.AutoSize = true;
             this.cbxShowRecommendations.Checked = true;
             this.cbxShowRecommendations.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbxShowRecommendations.Location = new System.Drawing.Point(197, 299);
+            this.cbxShowRecommendations.Location = new System.Drawing.Point(198, 269);
             this.cbxShowRecommendations.Name = "cbxShowRecommendations";
             this.cbxShowRecommendations.Size = new System.Drawing.Size(15, 14);
             this.cbxShowRecommendations.TabIndex = 11;
@@ -622,7 +671,7 @@
             this.lblShowRecommendations.AutoSize = true;
             this.lblShowRecommendations.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblShowRecommendations.ForeColor = System.Drawing.Color.Silver;
-            this.lblShowRecommendations.Location = new System.Drawing.Point(14, 297);
+            this.lblShowRecommendations.Location = new System.Drawing.Point(15, 267);
             this.lblShowRecommendations.Name = "lblShowRecommendations";
             this.lblShowRecommendations.Size = new System.Drawing.Size(155, 17);
             this.lblShowRecommendations.TabIndex = 10;
@@ -632,7 +681,7 @@
             // 
             this.lblSettingsRecommendations.AutoSize = true;
             this.lblSettingsRecommendations.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblSettingsRecommendations.Location = new System.Drawing.Point(14, 273);
+            this.lblSettingsRecommendations.Location = new System.Drawing.Point(15, 243);
             this.lblSettingsRecommendations.Name = "lblSettingsRecommendations";
             this.lblSettingsRecommendations.Size = new System.Drawing.Size(131, 17);
             this.lblSettingsRecommendations.TabIndex = 8;
@@ -643,7 +692,7 @@
             this.lblPolling.AutoSize = true;
             this.lblPolling.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPolling.ForeColor = System.Drawing.Color.Silver;
-            this.lblPolling.Location = new System.Drawing.Point(255, 226);
+            this.lblPolling.Location = new System.Drawing.Point(256, 196);
             this.lblPolling.Name = "lblPolling";
             this.lblPolling.Size = new System.Drawing.Size(34, 17);
             this.lblPolling.TabIndex = 6;
@@ -664,7 +713,7 @@
             "45",
             "60",
             "120"});
-            this.cmbxPolling.Location = new System.Drawing.Point(196, 223);
+            this.cmbxPolling.Location = new System.Drawing.Point(197, 193);
             this.cmbxPolling.Name = "cmbxPolling";
             this.cmbxPolling.Size = new System.Drawing.Size(53, 21);
             this.cmbxPolling.TabIndex = 4;
@@ -830,6 +879,17 @@
             this.panelItems.Name = "panelItems";
             this.panelItems.Size = new System.Drawing.Size(500, 196);
             this.panelItems.TabIndex = 102;
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Silver;
+            this.label7.Location = new System.Drawing.Point(157, 44);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(263, 49);
+            this.label7.TabIndex = 104;
+            this.label7.Text = "Make right click context menu come up with copy buy and sell commands";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dataItems
             // 
@@ -1890,115 +1950,14 @@
             this.timerSettingsSaved.Interval = 1;
             this.timerSettingsSaved.Tick += new System.EventHandler(this.timerSettingsSaved_Tick);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Silver;
-            this.label2.Location = new System.Drawing.Point(14, 541);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 17);
-            this.label2.TabIndex = 79;
-            this.label2.Text = "Focus Application";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Silver;
-            this.label3.Location = new System.Drawing.Point(14, 512);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 17);
-            this.label3.TabIndex = 76;
-            this.label3.Text = "Audible Tone";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Silver;
-            this.label4.Location = new System.Drawing.Point(14, 483);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 17);
-            this.label4.TabIndex = 74;
-            this.label4.Text = "Flash Taskbar";
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(197, 456);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(15, 14);
-            this.checkBox2.TabIndex = 73;
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Silver;
-            this.label5.Location = new System.Drawing.Point(14, 454);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(127, 17);
-            this.label5.TabIndex = 72;
-            this.label5.Text = "Enable Notifications";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label6.Location = new System.Drawing.Point(14, 430);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(89, 17);
-            this.label6.TabIndex = 71;
-            this.label6.Text = "Notifications";
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(197, 486);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(15, 14);
-            this.checkBox3.TabIndex = 80;
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(196, 515);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(15, 14);
-            this.checkBox4.TabIndex = 81;
-            this.checkBox4.UseVisualStyleBackColor = true;
-            // 
-            // checkBox5
-            // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(196, 544);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(15, 14);
-            this.checkBox5.TabIndex = 82;
-            this.checkBox5.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Silver;
-            this.label7.Location = new System.Drawing.Point(157, 44);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(263, 49);
-            this.label7.TabIndex = 104;
-            this.label7.Text = "Make right click context menu come up with copy buy and sell commands";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // CookieCosmos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.ClientSize = new System.Drawing.Size(526, 798);
-            this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelSettings);
+            this.Controls.Add(this.panelMain);
             this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
@@ -2165,23 +2124,20 @@
         private System.Windows.Forms.Label lblExtraApiGen;
         private System.Windows.Forms.Label lblGithub;
         private System.Windows.Forms.Label lblOfficialDiscord;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox cbxStartWindows;
         private System.Windows.Forms.Label lblStartWindows;
         private System.Windows.Forms.Label lblSettingsExtra;
         private System.Windows.Forms.Label lblSettingsSaved;
         private System.Windows.Forms.Timer timerSettingsSaved;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbxDataset;
-        private System.Windows.Forms.Label lblChangelog;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckBox cbxFocus;
+        private System.Windows.Forms.CheckBox cbxAudible;
+        private System.Windows.Forms.CheckBox cbxFlashTaskbar;
+        private System.Windows.Forms.Label lblFocus;
+        private System.Windows.Forms.Label lblAudible;
+        private System.Windows.Forms.Label lblFlashTaskbar;
+        private System.Windows.Forms.CheckBox cbxEnableNotifications;
+        private System.Windows.Forms.Label lblEnableNotifications;
+        private System.Windows.Forms.Label lblSettingsNotifications;
         private System.Windows.Forms.Label label7;
     }
 }

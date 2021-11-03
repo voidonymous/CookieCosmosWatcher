@@ -65,8 +65,7 @@
     <Compile Include="CookieCosmos.Designer.cs">
       <DependentUpon>CookieCosmos.cs</DependentUpon>
     </Compile>
-    <Compile Include="JsonData\RootCookie.cs" />
-    <Compile Include="JsonData\RootPlayer.cs" />
+    <Compile Include="JsonData\RootData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="API_Generator.resx">

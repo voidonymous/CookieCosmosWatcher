@@ -40,12 +40,10 @@
             this.lblApiUrlInfo = new System.Windows.Forms.Label();
             this.lblCopied = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.btnCopyToSettings = new System.Windows.Forms.Button();
             this.cbxDataItems = new System.Windows.Forms.CheckBox();
             this.cbxDataCookies = new System.Windows.Forms.CheckBox();
             this.cbxDataAchievements = new System.Windows.Forms.CheckBox();
             this.cbxDataTitles = new System.Windows.Forms.CheckBox();
-            this.cbxDataCrafting = new System.Windows.Forms.CheckBox();
             this.cbxDataRelics = new System.Windows.Forms.CheckBox();
             this.cbxPlayerStats = new System.Windows.Forms.CheckBox();
             this.cbxPlayerServers = new System.Windows.Forms.CheckBox();
@@ -177,19 +175,6 @@
             this.timer.Interval = 800;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // btnCopyToSettings
-            // 
-            this.btnCopyToSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCopyToSettings.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCopyToSettings.ForeColor = System.Drawing.Color.Silver;
-            this.btnCopyToSettings.Location = new System.Drawing.Point(457, 558);
-            this.btnCopyToSettings.Name = "btnCopyToSettings";
-            this.btnCopyToSettings.Size = new System.Drawing.Size(125, 25);
-            this.btnCopyToSettings.TabIndex = 67;
-            this.btnCopyToSettings.Text = "Copy to Settings";
-            this.btnCopyToSettings.UseVisualStyleBackColor = true;
-            this.btnCopyToSettings.Click += new System.EventHandler(this.btnCopyToSettings_Click);
-            // 
             // cbxDataItems
             // 
             this.cbxDataItems.AutoSize = true;
@@ -217,38 +202,28 @@
             // cbxDataAchievements
             // 
             this.cbxDataAchievements.AutoSize = true;
-            this.cbxDataAchievements.Location = new System.Drawing.Point(318, 262);
+            this.cbxDataAchievements.Enabled = false;
+            this.cbxDataAchievements.Location = new System.Drawing.Point(318, 235);
             this.cbxDataAchievements.Name = "cbxDataAchievements";
-            this.cbxDataAchievements.Size = new System.Drawing.Size(191, 21);
+            this.cbxDataAchievements.Size = new System.Drawing.Size(289, 21);
             this.cbxDataAchievements.TabIndex = 71;
-            this.cbxDataAchievements.Tag = "16384";
-            this.cbxDataAchievements.Text = "economy - achievements";
+            this.cbxDataAchievements.Tag = "8192";
+            this.cbxDataAchievements.Text = "economy - achievements (coming soon)";
             this.cbxDataAchievements.UseVisualStyleBackColor = true;
             this.cbxDataAchievements.CheckedChanged += new System.EventHandler(this.CalculateDataset);
             // 
             // cbxDataTitles
             // 
             this.cbxDataTitles.AutoSize = true;
-            this.cbxDataTitles.Location = new System.Drawing.Point(318, 235);
+            this.cbxDataTitles.Enabled = false;
+            this.cbxDataTitles.Location = new System.Drawing.Point(318, 208);
             this.cbxDataTitles.Name = "cbxDataTitles";
-            this.cbxDataTitles.Size = new System.Drawing.Size(129, 21);
+            this.cbxDataTitles.Size = new System.Drawing.Size(227, 21);
             this.cbxDataTitles.TabIndex = 70;
-            this.cbxDataTitles.Tag = "8192";
-            this.cbxDataTitles.Text = "economy - titles";
+            this.cbxDataTitles.Tag = "4096";
+            this.cbxDataTitles.Text = "economy - titles (coming soon)";
             this.cbxDataTitles.UseVisualStyleBackColor = true;
             this.cbxDataTitles.CheckedChanged += new System.EventHandler(this.CalculateDataset);
-            // 
-            // cbxDataCrafting
-            // 
-            this.cbxDataCrafting.AutoSize = true;
-            this.cbxDataCrafting.Location = new System.Drawing.Point(318, 208);
-            this.cbxDataCrafting.Name = "cbxDataCrafting";
-            this.cbxDataCrafting.Size = new System.Drawing.Size(150, 21);
-            this.cbxDataCrafting.TabIndex = 69;
-            this.cbxDataCrafting.Tag = "4096";
-            this.cbxDataCrafting.Text = "economy - crafting";
-            this.cbxDataCrafting.UseVisualStyleBackColor = true;
-            this.cbxDataCrafting.CheckedChanged += new System.EventHandler(this.CalculateDataset);
             // 
             // cbxDataRelics
             // 
@@ -278,6 +253,7 @@
             // cbxPlayerServers
             // 
             this.cbxPlayerServers.AutoSize = true;
+            this.cbxPlayerServers.Enabled = false;
             this.cbxPlayerServers.Location = new System.Drawing.Point(26, 127);
             this.cbxPlayerServers.Name = "cbxPlayerServers";
             this.cbxPlayerServers.Size = new System.Drawing.Size(115, 21);
@@ -377,6 +353,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.ClientSize = new System.Drawing.Size(615, 593);
+            this.Controls.Add(this.lblCopied);
             this.Controls.Add(this.cbxPlayerStats);
             this.Controls.Add(this.cbxPlayerServers);
             this.Controls.Add(this.cbxPlayerAchievements);
@@ -390,10 +367,7 @@
             this.Controls.Add(this.cbxDataCookies);
             this.Controls.Add(this.cbxDataAchievements);
             this.Controls.Add(this.cbxDataTitles);
-            this.Controls.Add(this.cbxDataCrafting);
             this.Controls.Add(this.cbxDataRelics);
-            this.Controls.Add(this.btnCopyToSettings);
-            this.Controls.Add(this.lblCopied);
             this.Controls.Add(this.lblApiUrlInfo);
             this.Controls.Add(this.lblApiKeyInfo);
             this.Controls.Add(this.lblApiKey);
@@ -425,12 +399,10 @@
         private System.Windows.Forms.Label lblApiUrlInfo;
         private System.Windows.Forms.Label lblCopied;
         private System.Windows.Forms.Timer timer;
-        private System.Windows.Forms.Button btnCopyToSettings;
         private System.Windows.Forms.CheckBox cbxDataItems;
         private System.Windows.Forms.CheckBox cbxDataCookies;
         private System.Windows.Forms.CheckBox cbxDataAchievements;
         private System.Windows.Forms.CheckBox cbxDataTitles;
-        private System.Windows.Forms.CheckBox cbxDataCrafting;
         private System.Windows.Forms.CheckBox cbxDataRelics;
         private System.Windows.Forms.CheckBox cbxPlayerStats;
         private System.Windows.Forms.CheckBox cbxPlayerServers;

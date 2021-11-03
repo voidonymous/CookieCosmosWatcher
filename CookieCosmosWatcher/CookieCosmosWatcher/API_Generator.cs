@@ -12,14 +12,13 @@ namespace CookieCosmosWatcher
 {
     public partial class API_Generator : Form
     {
-        public API_Generator(TextBox datasets, string form_api_key = "")
+        public API_Generator(string form_api_key = "")
         {
             api_key = form_api_key;
-            tbxDataSets = datasets;
             InitializeComponent();
         }
 
-        private string base_url = "https://api.cookiecosmosbot.com/v1.2/";
+        private string base_url = "https://api.cookiecosmosbot.com/v1.2_dev/data/";
         private string api_key = "";
         private int selected_dataset_binary = 0;
         private TextBox tbxDataSets;
@@ -36,13 +35,23 @@ namespace CookieCosmosWatcher
 
         private void MakeUrl()
         {
-            tbxApiUrl.Text = $"{base_url}/?t={(api_key != "" ? api_key : "{api_key}")}{(selected_dataset_binary > 0 ? $"&f={selected_dataset_binary}" : "")}";
+            tbxApiUrl.Text = $"{base_url}?t={(api_key != "" ? api_key : "{api_key}")}{(selected_dataset_binary > 0 ? $"&f={selected_dataset_binary}" : "")}";
         }
 
         private void CalculateDataset(object sender, EventArgs e)
         {
             CheckBox current = (CheckBox)sender;
             int value = Convert.ToInt32(current.Tag);
+
+            if (cbxPlayerCookies.Checked || cbxPlayerItemsConsumables.Checked || cbxPlayerItemsCraftables.Checked || cbxPlayerItemsPermanents.Checked || cbxPlayerRelics.Checked || cbxPlayerTitles.Checked
+                || cbxPlayerAchievements.Checked || cbxPlayerStats.Checked)
+            {
+                cbxPlayerServers.Checked = true;
+            }
+            else
+            {
+                cbxPlayerServers.Checked = false;
+            }
 
             if (current.Checked)
                 selected_dataset_binary += value;
