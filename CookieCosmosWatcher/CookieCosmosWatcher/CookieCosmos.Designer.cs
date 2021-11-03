@@ -442,8 +442,10 @@
             this.lblVersion.Name = "lblVersion";
             this.lblVersion.Size = new System.Drawing.Size(40, 16);
             this.lblVersion.TabIndex = 59;
-            this.lblVersion.Text = "v0.5.0";
-            this.toolTip.SetToolTip(this.lblVersion, "- Updated the API verison to 1.2_dev");
+            this.lblVersion.Text = "v0.5.1";
+            this.toolTip.SetToolTip(this.lblVersion, "- Fixed up server selecter not working\r\n- Added in a update checker\r\n- Poll rate " +
+        "can now be changed\r\n- Added buy/sell/use commands from right clicking on items\r\n" +
+        "- Settings are all saved");
             // 
             // lblUpdates
             // 
