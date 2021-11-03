@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CookieCosmosWatcher.JsonData
 {
-    class RootData
+    public class RootData
     {
         public string result { get; set; }
         public DateTime called { get; set; }

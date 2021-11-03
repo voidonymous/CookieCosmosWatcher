@@ -14,15 +14,19 @@ using CookieCosmosWatcher.JsonData;
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using Microsoft.Win32;
 
 namespace CookieCosmosWatcher
 {
     public partial class CookieCosmos : Form
     {
+        private const int BUILDNUM = 4;
+        private const string PROGRAMNAME = "Cookie Cosmos Watcher";
         private int counter = 0;
         private int counter_max = 3600;
 
         private RootData current_data;
+        private Updates update_data;
 
         private bool api_key_changed;
         private DateTime last_check;
@@ -41,7 +45,14 @@ namespace CookieCosmosWatcher
         private bool init = true;
         private int settings_being_saved = 0;
         private int settings_counter = 0;
+        private int update_counter = 0;
+        private int update_counter_timeout = 3600;
 
+        // context menus
+        private ContextMenu cm_consumable = new ContextMenu();
+        private ContextMenu cm_craftable = new ContextMenu();
+
+        RegistryKey registryKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
 
         struct Cookie_Controls
         {
@@ -123,6 +134,36 @@ namespace CookieCosmosWatcher
             cmbxPolling.SelectedIndex = 4;
             cmbxPrioritize.SelectedIndex = 0;
 
+            MenuItem cm_buy = new MenuItem();
+            cm_buy.Text = "Copy Buy Command";
+            cm_buy.Click += new System.EventHandler(cm_buy_do);
+
+            MenuItem cm_sell = new MenuItem();
+            cm_sell.Text = "Copy Sell Command";
+            cm_sell.Click += new System.EventHandler(cm_sell_do);
+
+            MenuItem cm_use = new MenuItem();
+            cm_use.Text = "Copy Use Command";
+            cm_use.Click += new System.EventHandler(cm_use_do);
+
+            cm_consumable.MenuItems.Add(cm_use);
+            cm_consumable.MenuItems.Add(cm_buy);
+            cm_consumable.MenuItems.Add(cm_sell);
+
+            cm_craftable.MenuItems.Add(cm_buy);
+            cm_craftable.MenuItems.Add(cm_sell);
+
+            if (registryKey.GetValue(PROGRAMNAME) == null)
+            {
+                // The value doesn't exist, the application is not set to run at startup
+                cbxStartWindows.Checked = false;
+            }
+            else
+            {
+                // The value exists, the application is set to run at startup
+                cbxStartWindows.Checked = true;
+            }
+
             LoadInfo();
             FormCheck();
 
@@ -196,7 +237,7 @@ namespace CookieCosmosWatcher
 
         private void LoadData()
         {
-            string url_data = $"https://api.cookiecosmosbot.com/v1.2_dev/data/?t={tbxApiKey.Text}&f=543";
+            string url_data = $"https://api.cookiecosmosbot.com/v1.2_dev/data/?t={tbxApiKey.Text}&f=1567";
 
             var data = "";
 
@@ -252,16 +293,6 @@ namespace CookieCosmosWatcher
             }
         }
 
-        private void cmbxServerSeleect_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            current_server = cmbxServerSelect.SelectedItem.ToString();
-
-            if (current_server != "")
-            {
-                RefreshData();
-            }
-        }
-
         private void RefreshData()
         {
             foreach (KeyValuePair<string, Cookie_Controls> kvp in cookie_controls)
@@ -274,6 +305,15 @@ namespace CookieCosmosWatcher
 
                 if (kvp.Value.paid != null)
                     kvp.Value.paid.Text = "0";
+
+                if (kvp.Value.sell != null)
+                    kvp.Value.sell.Text = "0";
+
+                if (kvp.Value.net != null)
+                    kvp.Value.net.Text = "0";
+
+                if (kvp.Value.inflator != null)
+                    kvp.Value.inflator.Text = "0";
             }
 
             foreach (EconomyCookie c in current_data.cookies.Where(x => x.name != "Millionaire Cookie"))
@@ -392,7 +432,7 @@ namespace CookieCosmosWatcher
                 dataItems.Rows.Clear();
                 foreach (PlayerItem pi in server_stuff.items)
                 {
-                    dataItems.Rows.Add(pi.item_type, (pi.item_type == "Consumable" ? pi.name : pi.name + $" ({pi.description})"), pi.amount);
+                    dataItems.Rows.Add(pi.name, pi.item_type, (pi.item_type == "Consumable" ? pi.name : pi.name + $" ({pi.description})"), pi.amount);
                 }
 
                 dataItems.ClearSelection();
@@ -416,11 +456,6 @@ namespace CookieCosmosWatcher
             LoadData();
         }
 
-        private void cbxKeepTop_CheckedChanged(object sender, EventArgs e)
-        {
-            TopMost = cbxKeepTop.Checked ? true : false;
-        }
-
         private void cbxShowRecommendations_CheckedChanged(object sender, EventArgs e)
         {
             lblProfitThreshold.Enabled = cbxShowRecommendations.Checked ? true : false;
@@ -429,6 +464,10 @@ namespace CookieCosmosWatcher
             numProfitThreshold.Enabled = cbxShowRecommendations.Checked ? true : false;
             numInflatorThreshold.Enabled = cbxShowRecommendations.Checked ? true : false;
             cmbxPrioritize.Enabled = cbxShowRecommendations.Checked ? true : false;
+            panelRecommendations.Visible = cbxShowRecommendations.Checked ? true : false;
+
+            Properties.Settings.Default.show_rec = cbxShowRecommendations.Checked ? true : false;
+            SaveSettings();
         }
 
         private void lblExtraApiGen_Click(object sender, EventArgs e)
@@ -484,14 +523,235 @@ namespace CookieCosmosWatcher
             Application.DoEvents();
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void cmbxPolling_SelectedIndexChanged(object sender, EventArgs e)
         {
+            int poll_rate = Convert.ToInt16(cmbxPolling.SelectedItem.ToString());
+            Properties.Settings.Default.polling = poll_rate;
+            counter_max = poll_rate * 60;
+            if (counter > counter_max)
+                counter = counter_max;
+
             SaveSettings();
         }
 
-        private void cmbxPolling_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbxServerSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
+            current_server = cmbxServerSelect.SelectedItem.ToString();
+
+            if (current_server != "")
+            {
+                RefreshData();
+            }
+        }
+
+        private void btnCheckUpdate_Click(object sender, EventArgs e)
+        {
+            btnCheckUpdate.Enabled = false;
+            lblCheckingUpdate.Visible = true;
+            update_counter = 0;
+            timerUpdate.Start();
+            lblCheckingUpdate.Text = $"Checking...";
+            Application.DoEvents();
+
+            CheckForUpdate();
+        }
+
+        private void timerUpdate_Tick(object sender, EventArgs e)
+        {
+            update_counter++;
+
+            if (update_counter >= update_counter_timeout)
+            {
+                btnCheckUpdate.Enabled = true;
+                lblCheckingUpdate.Visible = false;
+                timerUpdate.Stop();
+            }
+        }
+
+        private void CheckForUpdate()
+        {
+            string url_data = $"https://cookiecosmosbot.com/tools/versions/?c=000-000";
+
+            var data = "";
+
+            using (WebClient client = new WebClient())
+            {
+                client.Headers.Add("user-agent", ".NET Cookie-Cosmos-Watcher-0.1-updater");
+                data = client.DownloadString(url_data);
+            }
+
+            // Grab the api response and deserialize it
+            if (data != "")
+            {
+                Updates json_data = JsonConvert.DeserializeObject<Updates>(data);
+                update_data = json_data;
+
+                if (json_data.name == "cookie_cosmos_watcher")
+                {
+                    string version = json_data.version;
+                    int build = json_data.build;
+                    if (build > BUILDNUM)
+                    {
+                        lblCheckingUpdate.Text = $"Version {version} available.\nClick here to download.";
+                    }
+                    else
+                    {
+                        lblCheckingUpdate.Text = $"No update available.";
+                    }
+                }
+
+            }
+        }
+
+        private void lblCheckingUpdate_Click(object sender, EventArgs e)
+        {
+            if (lblCheckingUpdate.Text.Contains("download"))
+            {
+                Process.Start(update_data.download);
+            }    
+        }
+
+        private void cbxStartWindows_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxStartWindows.Checked)
+            {
+                registryKey.SetValue(PROGRAMNAME, Application.ExecutablePath);
+            }
+            else
+            {
+                registryKey.DeleteValue(PROGRAMNAME);
+            }
+
             SaveSettings();
+        }
+
+        private void numProfitThreshold_ValueChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.rec_threshold = numProfitThreshold.Value;
+            SaveSettings();
+        }
+
+        private void numInflatorThreshold_ValueChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.rec_inflator = numInflatorThreshold.Value;
+            SaveSettings();
+        }
+
+        private void cmbxPrioritize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.rec_prioritize = cmbxPrioritize.SelectedItem.ToString();
+            SaveSettings();
+        }
+
+        private void cbxEnableNotifications_CheckedChanged(object sender, EventArgs e)
+        {
+            lblFlashTaskbar.Enabled = cbxEnableNotifications.Checked ? true : false;
+            lblAudible.Enabled = cbxEnableNotifications.Checked ? true : false;
+            lblFocus.Enabled = cbxEnableNotifications.Checked ? true : false;
+            cbxFlashTaskbar.Enabled = cbxEnableNotifications.Checked ? true : false;
+            cbxAudible.Enabled = cbxEnableNotifications.Checked ? true : false;
+            cbxFocus.Enabled = cbxEnableNotifications.Checked ? true : false;
+
+            Properties.Settings.Default.notification = cbxEnableNotifications.Checked ? true : false;
+            SaveSettings();
+        }
+
+        private void cbxFlashTaskbar_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.noti_flash = cbxFlashTaskbar.Checked ? true : false;
+            SaveSettings();
+        }
+
+        private void cbxAudible_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.noti_tone = cbxAudible.Checked ? true : false;
+            SaveSettings();
+        }
+
+        private void cbxFocus_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.noti_focus = cbxFocus.Checked ? true : false;
+            SaveSettings();
+        }
+
+        private void cbxKeepTop_CheckedChanged(object sender, EventArgs e)
+        {
+            TopMost = cbxKeepTop.Checked ? true : false;
+            Properties.Settings.Default.top_most = cbxKeepTop.Checked ? true : false;
+            SaveSettings();
+        }
+
+        private void dataItems_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                int currentMouseOverRow = dataItems.HitTest(e.X, e.Y).RowIndex;
+
+                //dataItems.ClearSelection();
+
+                if (currentMouseOverRow >= 0)
+                {
+                    dataItems.Rows[currentMouseOverRow].Selected = true;
+                    string type = dataItems.Rows[currentMouseOverRow].Cells[1].Value.ToString();
+
+                    if (type == "Consumable")
+                    {
+                        cm_consumable.Show(dataItems, new Point(e.X, e.Y));
+                    }
+                    else if (type == "Craftable")
+                    {
+                        cm_craftable.Show(dataItems, new Point(e.X, e.Y));
+                    }
+                }
+            }
+        }
+
+        // Right click menu item
+        private void cm_buy_do(object sender, System.EventArgs e)
+        {
+            DoContextMenuTask(0);
+        }
+
+        // Right click menu item
+        private void cm_sell_do(object sender, System.EventArgs e)
+        {
+            DoContextMenuTask(1);
+        }
+
+        // Right click menu item
+        private void cm_use_do(object sender, System.EventArgs e)
+        {
+            DoContextMenuTask(2);
+        }
+
+        private void DoContextMenuTask(int type)
+        {
+            // Gets the selected column
+            int selectedrowindex = dataItems.SelectedCells[0].RowIndex;
+            if (selectedrowindex != -1)
+            {
+                // Gets the selected row
+                DataGridViewRow selectedRow = dataItems.Rows[selectedrowindex];
+                // Gets the venuekey as a string from the selected row and column
+                string item_name = Convert.ToString(selectedRow.Cells["ID"].Value);
+
+                EconomyItem item = current_data.items.Find(x => x.name == item_name);
+                if (item != null)
+                {
+                    switch (type)
+                    {
+                        case 0:
+                            Clipboard.SetText("+shop buy " + item.name);
+                            break;
+                        case 1:
+                            Clipboard.SetText("+shop sell " + item.name);
+                            break;
+                        case 2:
+                            Clipboard.SetText("+item use " + item.name);
+                            break;
+                    }
+                }
+            }
         }
     }
 }

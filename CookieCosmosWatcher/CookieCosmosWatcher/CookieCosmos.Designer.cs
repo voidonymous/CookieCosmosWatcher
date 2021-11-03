@@ -76,12 +76,8 @@
             this.panelMain = new System.Windows.Forms.Panel();
             this.pbxRefresh = new System.Windows.Forms.PictureBox();
             this.panelItems = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
             this.dataItems = new System.Windows.Forms.DataGridView();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PanelRecommendations = new System.Windows.Forms.Panel();
+            this.panelRecommendations = new System.Windows.Forms.Panel();
             this.lbxRecommendations = new System.Windows.Forms.ListBox();
             this.lblRecommendations = new System.Windows.Forms.Label();
             this.lblCookieValueValue = new System.Windows.Forms.Label();
@@ -174,6 +170,11 @@
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.timerSettingsSaved = new System.Windows.Forms.Timer(this.components);
+            this.timerUpdate = new System.Windows.Forms.Timer(this.components);
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numInflatorThreshold)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numProfitThreshold)).BeginInit();
@@ -182,7 +183,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbxRefresh)).BeginInit();
             this.panelItems.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataItems)).BeginInit();
-            this.PanelRecommendations.SuspendLayout();
+            this.panelRecommendations.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCookie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -252,33 +253,40 @@
             // cbxFocus
             // 
             this.cbxFocus.AutoSize = true;
+            this.cbxFocus.Enabled = false;
             this.cbxFocus.Location = new System.Drawing.Point(197, 514);
             this.cbxFocus.Name = "cbxFocus";
             this.cbxFocus.Size = new System.Drawing.Size(15, 14);
             this.cbxFocus.TabIndex = 82;
             this.cbxFocus.UseVisualStyleBackColor = true;
+            this.cbxFocus.CheckedChanged += new System.EventHandler(this.cbxFocus_CheckedChanged);
             // 
             // cbxAudible
             // 
             this.cbxAudible.AutoSize = true;
+            this.cbxAudible.Enabled = false;
             this.cbxAudible.Location = new System.Drawing.Point(197, 485);
             this.cbxAudible.Name = "cbxAudible";
             this.cbxAudible.Size = new System.Drawing.Size(15, 14);
             this.cbxAudible.TabIndex = 81;
             this.cbxAudible.UseVisualStyleBackColor = true;
+            this.cbxAudible.CheckedChanged += new System.EventHandler(this.cbxAudible_CheckedChanged);
             // 
             // cbxFlashTaskbar
             // 
             this.cbxFlashTaskbar.AutoSize = true;
+            this.cbxFlashTaskbar.Enabled = false;
             this.cbxFlashTaskbar.Location = new System.Drawing.Point(198, 456);
             this.cbxFlashTaskbar.Name = "cbxFlashTaskbar";
             this.cbxFlashTaskbar.Size = new System.Drawing.Size(15, 14);
             this.cbxFlashTaskbar.TabIndex = 80;
             this.cbxFlashTaskbar.UseVisualStyleBackColor = true;
+            this.cbxFlashTaskbar.CheckedChanged += new System.EventHandler(this.cbxFlashTaskbar_CheckedChanged);
             // 
             // lblFocus
             // 
             this.lblFocus.AutoSize = true;
+            this.lblFocus.Enabled = false;
             this.lblFocus.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFocus.ForeColor = System.Drawing.Color.Silver;
             this.lblFocus.Location = new System.Drawing.Point(15, 511);
@@ -290,6 +298,7 @@
             // lblAudible
             // 
             this.lblAudible.AutoSize = true;
+            this.lblAudible.Enabled = false;
             this.lblAudible.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAudible.ForeColor = System.Drawing.Color.Silver;
             this.lblAudible.Location = new System.Drawing.Point(15, 482);
@@ -301,6 +310,7 @@
             // lblFlashTaskbar
             // 
             this.lblFlashTaskbar.AutoSize = true;
+            this.lblFlashTaskbar.Enabled = false;
             this.lblFlashTaskbar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFlashTaskbar.ForeColor = System.Drawing.Color.Silver;
             this.lblFlashTaskbar.Location = new System.Drawing.Point(15, 453);
@@ -317,6 +327,7 @@
             this.cbxEnableNotifications.Size = new System.Drawing.Size(15, 14);
             this.cbxEnableNotifications.TabIndex = 73;
             this.cbxEnableNotifications.UseVisualStyleBackColor = true;
+            this.cbxEnableNotifications.CheckedChanged += new System.EventHandler(this.cbxEnableNotifications_CheckedChanged);
             // 
             // lblEnableNotifications
             // 
@@ -394,12 +405,12 @@
             // cbxStartWindows
             // 
             this.cbxStartWindows.AutoSize = true;
-            this.cbxStartWindows.Location = new System.Drawing.Point(197, 104);
+            this.cbxStartWindows.Location = new System.Drawing.Point(196, 104);
             this.cbxStartWindows.Name = "cbxStartWindows";
             this.cbxStartWindows.Size = new System.Drawing.Size(15, 14);
             this.cbxStartWindows.TabIndex = 63;
             this.cbxStartWindows.UseVisualStyleBackColor = true;
-            this.cbxStartWindows.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.cbxStartWindows.CheckedChanged += new System.EventHandler(this.cbxStartWindows_CheckedChanged);
             // 
             // lblStartWindows
             // 
@@ -431,8 +442,8 @@
             this.lblVersion.Name = "lblVersion";
             this.lblVersion.Size = new System.Drawing.Size(40, 16);
             this.lblVersion.TabIndex = 59;
-            this.lblVersion.Text = "v0.3.1";
-            this.toolTip.SetToolTip(this.lblVersion, "- Added notification UI");
+            this.lblVersion.Text = "v0.5.0";
+            this.toolTip.SetToolTip(this.lblVersion, "- Updated the API verison to 1.2_dev");
             // 
             // lblUpdates
             // 
@@ -458,7 +469,6 @@
             // 
             // cmbxServerSelect
             // 
-            this.cmbxServerSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbxServerSelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.cmbxServerSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbxServerSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -469,10 +479,10 @@
             this.cmbxServerSelect.Name = "cmbxServerSelect";
             this.cmbxServerSelect.Size = new System.Drawing.Size(125, 21);
             this.cmbxServerSelect.TabIndex = 56;
+            this.cmbxServerSelect.SelectedIndexChanged += new System.EventHandler(this.cmbxServerSelect_SelectedIndexChanged);
             // 
             // lblSettingsGeneral
             // 
-            this.lblSettingsGeneral.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSettingsGeneral.AutoSize = true;
             this.lblSettingsGeneral.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lblSettingsGeneral.Location = new System.Drawing.Point(13, 29);
@@ -504,19 +514,21 @@
             // 
             // lblCheckingUpdate
             // 
-            this.lblCheckingUpdate.AutoSize = true;
+            this.lblCheckingUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCheckingUpdate.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCheckingUpdate.ForeColor = System.Drawing.Color.Silver;
-            this.lblCheckingUpdate.Location = new System.Drawing.Point(322, 79);
+            this.lblCheckingUpdate.Location = new System.Drawing.Point(322, 69);
             this.lblCheckingUpdate.Name = "lblCheckingUpdate";
-            this.lblCheckingUpdate.Size = new System.Drawing.Size(68, 16);
+            this.lblCheckingUpdate.Size = new System.Drawing.Size(192, 34);
             this.lblCheckingUpdate.TabIndex = 24;
             this.lblCheckingUpdate.Text = "Checking...";
+            this.lblCheckingUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblCheckingUpdate.Visible = false;
+            this.lblCheckingUpdate.Click += new System.EventHandler(this.lblCheckingUpdate_Click);
             // 
             // btnCheckUpdate
             // 
-            this.btnCheckUpdate.Enabled = false;
             this.btnCheckUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCheckUpdate.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCheckUpdate.ForeColor = System.Drawing.Color.Silver;
@@ -526,6 +538,7 @@
             this.btnCheckUpdate.TabIndex = 23;
             this.btnCheckUpdate.Text = "Check for Updates";
             this.btnCheckUpdate.UseVisualStyleBackColor = true;
+            this.btnCheckUpdate.Click += new System.EventHandler(this.btnCheckUpdate_Click);
             // 
             // lblSettingsDisplay
             // 
@@ -581,12 +594,12 @@
             this.cmbxPrioritize.Items.AddRange(new object[] {
             "Cookie Growth",
             "Relics",
-            "Prestiging",
-            "Everything"});
+            "Prestiging"});
             this.cmbxPrioritize.Location = new System.Drawing.Point(198, 350);
             this.cmbxPrioritize.Name = "cmbxPrioritize";
             this.cmbxPrioritize.Size = new System.Drawing.Size(316, 21);
             this.cmbxPrioritize.TabIndex = 16;
+            this.cmbxPrioritize.SelectedIndexChanged += new System.EventHandler(this.cmbxPrioritize_SelectedIndexChanged);
             // 
             // numInflatorThreshold
             // 
@@ -595,6 +608,11 @@
             this.numInflatorThreshold.DecimalPlaces = 2;
             this.numInflatorThreshold.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numInflatorThreshold.ForeColor = System.Drawing.Color.Silver;
+            this.numInflatorThreshold.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
             this.numInflatorThreshold.Location = new System.Drawing.Point(198, 322);
             this.numInflatorThreshold.Minimum = new decimal(new int[] {
             1,
@@ -609,6 +627,7 @@
             0,
             0,
             131072});
+            this.numInflatorThreshold.ValueChanged += new System.EventHandler(this.numInflatorThreshold_ValueChanged);
             // 
             // lblInflatorThreshold
             // 
@@ -628,6 +647,11 @@
             this.numProfitThreshold.DecimalPlaces = 2;
             this.numProfitThreshold.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numProfitThreshold.ForeColor = System.Drawing.Color.Silver;
+            this.numProfitThreshold.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
             this.numProfitThreshold.Location = new System.Drawing.Point(198, 293);
             this.numProfitThreshold.Minimum = new decimal(new int[] {
             1,
@@ -642,6 +666,7 @@
             0,
             0,
             131072});
+            this.numProfitThreshold.ValueChanged += new System.EventHandler(this.numProfitThreshold_ValueChanged);
             // 
             // lblProfitThreshold
             // 
@@ -762,7 +787,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelMain.Controls.Add(this.pbxRefresh);
             this.panelMain.Controls.Add(this.panelItems);
-            this.panelMain.Controls.Add(this.PanelRecommendations);
+            this.panelMain.Controls.Add(this.panelRecommendations);
             this.panelMain.Controls.Add(this.lblCookieValueValue);
             this.panelMain.Controls.Add(this.lblCookieValue);
             this.panelMain.Controls.Add(this.lblCanPrestigeValue);
@@ -873,28 +898,17 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelItems.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelItems.Controls.Add(this.label7);
             this.panelItems.Controls.Add(this.dataItems);
             this.panelItems.Location = new System.Drawing.Point(13, 591);
             this.panelItems.Name = "panelItems";
             this.panelItems.Size = new System.Drawing.Size(500, 196);
             this.panelItems.TabIndex = 102;
             // 
-            // label7
-            // 
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Silver;
-            this.label7.Location = new System.Drawing.Point(157, 44);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(263, 49);
-            this.label7.TabIndex = 104;
-            this.label7.Text = "Make right click context menu come up with copy buy and sell commands";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // dataItems
             // 
             this.dataItems.AllowUserToAddRows = false;
             this.dataItems.AllowUserToDeleteRows = false;
+            this.dataItems.AllowUserToResizeRows = false;
             this.dataItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -903,47 +917,32 @@
             this.dataItems.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
             this.Type,
             this.Item,
             this.Amount});
             this.dataItems.Location = new System.Drawing.Point(0, 0);
+            this.dataItems.MultiSelect = false;
             this.dataItems.Name = "dataItems";
             this.dataItems.RowHeadersVisible = false;
             this.dataItems.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dataItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataItems.ShowEditingIcon = false;
             this.dataItems.ShowRowErrors = false;
             this.dataItems.Size = new System.Drawing.Size(515, 194);
             this.dataItems.StandardTab = true;
             this.dataItems.TabIndex = 43;
+            this.dataItems.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataItems_MouseClick);
             // 
-            // Type
+            // panelRecommendations
             // 
-            this.Type.FillWeight = 25F;
-            this.Type.HeaderText = "Type";
-            this.Type.Name = "Type";
-            // 
-            // Item
-            // 
-            this.Item.FillWeight = 50F;
-            this.Item.HeaderText = "Item";
-            this.Item.Name = "Item";
-            // 
-            // Amount
-            // 
-            this.Amount.FillWeight = 25F;
-            this.Amount.HeaderText = "Amount";
-            this.Amount.Name = "Amount";
-            // 
-            // PanelRecommendations
-            // 
-            this.PanelRecommendations.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PanelRecommendations.Controls.Add(this.lbxRecommendations);
-            this.PanelRecommendations.Controls.Add(this.lblRecommendations);
-            this.PanelRecommendations.Location = new System.Drawing.Point(210, 443);
-            this.PanelRecommendations.Name = "PanelRecommendations";
-            this.PanelRecommendations.Size = new System.Drawing.Size(302, 104);
-            this.PanelRecommendations.TabIndex = 101;
+            this.panelRecommendations.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelRecommendations.Controls.Add(this.lbxRecommendations);
+            this.panelRecommendations.Controls.Add(this.lblRecommendations);
+            this.panelRecommendations.Location = new System.Drawing.Point(210, 443);
+            this.panelRecommendations.Name = "panelRecommendations";
+            this.panelRecommendations.Size = new System.Drawing.Size(302, 104);
+            this.panelRecommendations.TabIndex = 101;
             // 
             // lbxRecommendations
             // 
@@ -1950,6 +1949,35 @@
             this.timerSettingsSaved.Interval = 1;
             this.timerSettingsSaved.Tick += new System.EventHandler(this.timerSettingsSaved_Tick);
             // 
+            // timerUpdate
+            // 
+            this.timerUpdate.Interval = 1000;
+            this.timerUpdate.Tick += new System.EventHandler(this.timerUpdate_Tick);
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.Visible = false;
+            // 
+            // Type
+            // 
+            this.Type.FillWeight = 25F;
+            this.Type.HeaderText = "Type";
+            this.Type.Name = "Type";
+            // 
+            // Item
+            // 
+            this.Item.FillWeight = 50F;
+            this.Item.HeaderText = "Item";
+            this.Item.Name = "Item";
+            // 
+            // Amount
+            // 
+            this.Amount.FillWeight = 25F;
+            this.Amount.HeaderText = "Amount";
+            this.Amount.Name = "Amount";
+            // 
             // CookieCosmos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -1975,8 +2003,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbxRefresh)).EndInit();
             this.panelItems.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataItems)).EndInit();
-            this.PanelRecommendations.ResumeLayout(false);
-            this.PanelRecommendations.PerformLayout();
+            this.panelRecommendations.ResumeLayout(false);
+            this.panelRecommendations.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCookie)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
@@ -2064,9 +2092,6 @@
         private System.Windows.Forms.Label lblMechaPrice;
         private System.Windows.Forms.Label lblCookieHolding;
         private System.Windows.Forms.PictureBox pbxCookie;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Item;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.Label lblMillionaireNet;
         private System.Windows.Forms.Label lblPrestigeValue;
         private System.Windows.Forms.Label lblPrestige;
@@ -2095,7 +2120,7 @@
         private System.Windows.Forms.Label lblCookieValue;
         private System.Windows.Forms.Label lblCanPrestigeValue;
         private System.Windows.Forms.Label lblCanPrestige;
-        private System.Windows.Forms.Panel PanelRecommendations;
+        private System.Windows.Forms.Panel panelRecommendations;
         private System.Windows.Forms.ListBox lbxRecommendations;
         private System.Windows.Forms.Label lblRecommendations;
         private System.Windows.Forms.Label lblSettingsDisplay;
@@ -2138,7 +2163,11 @@
         private System.Windows.Forms.CheckBox cbxEnableNotifications;
         private System.Windows.Forms.Label lblEnableNotifications;
         private System.Windows.Forms.Label lblSettingsNotifications;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Timer timerUpdate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Item;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
     }
 }
 

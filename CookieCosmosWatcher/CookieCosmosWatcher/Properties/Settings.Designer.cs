@@ -58,5 +58,113 @@ namespace CookieCosmosWatcher.Properties {
                 this["current_server"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool show_rec {
+            get {
+                return ((bool)(this["show_rec"]));
+            }
+            set {
+                this["show_rec"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.50")]
+        public decimal rec_threshold {
+            get {
+                return ((decimal)(this["rec_threshold"]));
+            }
+            set {
+                this["rec_threshold"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2.00")]
+        public decimal rec_inflator {
+            get {
+                return ((decimal)(this["rec_inflator"]));
+            }
+            set {
+                this["rec_inflator"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Cookie Growth")]
+        public string rec_prioritize {
+            get {
+                return ((string)(this["rec_prioritize"]));
+            }
+            set {
+                this["rec_prioritize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool notification {
+            get {
+                return ((bool)(this["notification"]));
+            }
+            set {
+                this["notification"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool noti_flash {
+            get {
+                return ((bool)(this["noti_flash"]));
+            }
+            set {
+                this["noti_flash"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool noti_tone {
+            get {
+                return ((bool)(this["noti_tone"]));
+            }
+            set {
+                this["noti_tone"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool noti_focus {
+            get {
+                return ((bool)(this["noti_focus"]));
+            }
+            set {
+                this["noti_focus"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool top_most {
+            get {
+                return ((bool)(this["top_most"]));
+            }
+            set {
+                this["top_most"] = value;
+            }
+        }
     }
 }
